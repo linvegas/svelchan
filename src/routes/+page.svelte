@@ -1,2 +1,8 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<h1>Welcome to Svelchan</h1>
+<h3>List of boards:</h3>
+<ul>
+  <li>/g</li>
+  <li>/v</li>
+  <li>/a</li>
+  <li>/b</li>
+</ul>

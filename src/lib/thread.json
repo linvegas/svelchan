@@ -1,0 +1,1376 @@
+{
+  "posts": [
+    {
+      "no": 98455667,
+      "now": "01/14/24(Sun)20:31:25",
+      "name": "Anonymous",
+      "sub": "Why do Ryzen processors take so long to boot?",
+      "com": "Taking 30 seconds just to get to the POST screen is ridiculous. Is there some sort of fundamental flaw with Ryzen?",
+      "filename": "amd-ryzen-cpu-processor-chip-desktop-gaming-pc_640x480",
+      "ext": ".jpg",
+      "w": 584,
+      "h": 438,
+      "tn_w": 250,
+      "tn_h": 187,
+      "tim": 1705282285048201,
+      "time": 1705282285,
+      "md5": "7I/1v2480sZlFc9sTsWzUg==",
+      "fsize": 21097,
+      "resto": 0,
+      "bumplimit": 0,
+      "imagelimit": 0,
+      "semantic_url": "why-do-ryzen-processors-take-so-long-to-boot",
+      "replies": 156,
+      "images": 11,
+      "unique_ips": 86,
+      "tail_size": 50
+    },
+    {
+      "no": 98455716,
+      "now": "01/14/24(Sun)20:34:43",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98455667\" class=\"quotelink\">&gt;&gt;98455667</a><br>yes, amd blows, did you just figure this out, kid?",
+      "time": 1705282483,
+      "resto": 98455667
+    },
+    {
+      "no": 98455754,
+      "now": "01/14/24(Sun)20:37:15",
+      "name": "Anonymous",
+      "com": "Turn on memory context restore.",
+      "time": 1705282635,
+      "resto": 98455667
+    },
+    {
+      "no": 98455813,
+      "now": "01/14/24(Sun)20:40:39",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98455667\" class=\"quotelink\">&gt;&gt;98455667</a><br><br>still better than Intelaviv",
+      "filename": "1685261512810299",
+      "ext": ".gif",
+      "w": 494,
+      "h": 740,
+      "tn_w": 83,
+      "tn_h": 125,
+      "tim": 1705282839744257,
+      "time": 1705282839,
+      "md5": "mXVqPuEnhVMPk8qzm/t5FA==",
+      "fsize": 2509925,
+      "resto": 98455667
+    },
+    {
+      "no": 98455828,
+      "now": "01/14/24(Sun)20:41:46",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98455667\" class=\"quotelink\">&gt;&gt;98455667</a><br>Your memory is training. <a href=\"#p98455754\" class=\"quotelink\">&gt;&gt;98455754</a>",
+      "time": 1705282906,
+      "resto": 98455667
+    },
+    {
+      "no": 98455860,
+      "now": "01/14/24(Sun)20:43:55",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98455667\" class=\"quotelink\">&gt;&gt;98455667</a><br>Flash your BIOS.",
+      "time": 1705283035,
+      "resto": 98455667
+    },
+    {
+      "no": 98455975,
+      "now": "01/14/24(Sun)20:50:22",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98455667\" class=\"quotelink\">&gt;&gt;98455667</a><br>Takes less than 5 seconds on my computer.",
+      "time": 1705283422,
+      "resto": 98455667
+    },
+    {
+      "no": 98457426,
+      "now": "01/14/24(Sun)22:44:56",
+      "name": "Anonymous",
+      "com": "Fastboot and modern hardware, how can anyone be so incompetent? It takes no more than 10 secons on mine",
+      "time": 1705290296,
+      "resto": 98455667
+    },
+    {
+      "no": 98457448,
+      "now": "01/14/24(Sun)22:46:45",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98455754\" class=\"quotelink\">&gt;&gt;98455754</a><br><span class=\"quote\">&gt;memory context restore</span><br>Is this applicable to am4?",
+      "time": 1705290405,
+      "resto": 98455667
+    },
+    {
+      "no": 98457817,
+      "now": "01/14/24(Sun)23:23:41",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98457448\" class=\"quotelink\">&gt;&gt;98457448</a><br>Yes RAM in general requires memory training. It&#039;s just faster on AM4 because DDR4 operates at a lower frequency which means propagation delay and signal reflection is less of a concern. These two seem to be the main culprits for long training times on AM5. For DDR5 Intel&#039;s memory controller is more mature which is why training time isn&#039;t as bad. For AM5 though certain combinations of memory and motherboard results in the same training time as Intel so it&#039;s worth looking into if you care about boot time.",
+      "time": 1705292621,
+      "resto": 98455667
+    },
+    {
+      "no": 98457982,
+      "now": "01/14/24(Sun)23:44:06",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98455667\" class=\"quotelink\">&gt;&gt;98455667</a><br><span class=\"quote\">&gt;Startup finished in 5.390s (firmware) + 2.654s (loader) + 1.196s (kernel) + 2.832s (userspace) = 12.072s</span>",
+      "time": 1705293846,
+      "resto": 98455667
+    },
+    {
+      "no": 98457995,
+      "now": "01/14/24(Sun)23:45:26",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98455667\" class=\"quotelink\">&gt;&gt;98455667</a><br>All DDR5 boots slow.",
+      "time": 1705293926,
+      "resto": 98455667
+    },
+    {
+      "no": 98459494,
+      "now": "01/15/24(Mon)01:53:31",
+      "name": "Anonymous",
+      "com": "They&#039;re prissy little princesses about memory. Unless you give them a hi spec motherboard and hi spec ram, training takes an absurd amount of time. BIOS updates have helped but each new gen or ryzens seems to start back from square one. And FORGET about rated speeds on budget parts, they won&#039;t even POST on XMP with QVL listed parts",
+      "time": 1705301611,
+      "resto": 98455667
+    },
+    {
+      "no": 98459525,
+      "now": "01/15/24(Mon)01:57:16",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98455667\" class=\"quotelink\">&gt;&gt;98455667</a><br><span class=\"quote\">&gt;I don&#039;t know how to setup a computer</span><br><span class=\"quote\">&gt;everyone else is retarded!</span><br>12 seconds from start to desktop. 5600x x570 board 32 gigs memory",
+      "time": 1705301836,
+      "resto": 98455667
+    },
+    {
+      "no": 98459594,
+      "now": "01/15/24(Mon)02:04:07",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98457982\" class=\"quotelink\">&gt;&gt;98457982</a><br>this. basically",
+      "time": 1705302247,
+      "resto": 98455667
+    },
+    {
+      "no": 98459608,
+      "now": "01/15/24(Mon)02:05:34",
+      "name": "Anonymous",
+      "com": "You &quot;need&quot; your PC to boot in less than 30 seconds? Zoomer boy can&#039;t wait 30 seconds without doing anything?",
+      "time": 1705302334,
+      "resto": 98455667
+    },
+    {
+      "no": 98459635,
+      "now": "01/15/24(Mon)02:07:17",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98459494\" class=\"quotelink\">&gt;&gt;98459494</a><br>So you&#039;re sayin that the mid and low end is slow but the high end is fast?",
+      "time": 1705302437,
+      "resto": 98455667
+    },
+    {
+      "no": 98459653,
+      "now": "01/15/24(Mon)02:08:16",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98459608\" class=\"quotelink\">&gt;&gt;98459608</a><br>not op but fuck you for talking about &quot;needs&quot;<br><br>you same assholes were telling us we didn&#039;t &quot;need&quot; more than 60 fps monitors.",
+      "time": 1705302496,
+      "resto": 98455667
+    },
+    {
+      "no": 98459690,
+      "now": "01/15/24(Mon)02:12:11",
+      "name": "Anonymous",
+      "com": "Works flawlessly on my machine",
+      "time": 1705302731,
+      "resto": 98455667
+    },
+    {
+      "no": 98459778,
+      "now": "01/15/24(Mon)02:21:55",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98459608\" class=\"quotelink\">&gt;&gt;98459608</a><br>you sure as hell don&#039;t &quot;need&quot; to postto 4chan<br>kys tranny",
+      "time": 1705303315,
+      "resto": 98455667
+    },
+    {
+      "no": 98459860,
+      "now": "01/15/24(Mon)02:30:37",
+      "name": "Anonymous",
+      "com": "I could care less",
+      "filename": "file",
+      "ext": ".png",
+      "w": 88,
+      "h": 39,
+      "tn_w": 88,
+      "tn_h": 39,
+      "tim": 1705303837200200,
+      "time": 1705303837,
+      "md5": "YEyuyjA366ID4ORZ4PqElQ==",
+      "fsize": 960,
+      "resto": 98455667
+    },
+    {
+      "no": 98459861,
+      "now": "01/15/24(Mon)02:30:37",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98455667\" class=\"quotelink\">&gt;&gt;98455667</a><br>Honestly, listen well. Amd creates their product to do well in benchmarks. That&#039;s all you get. If you need to actually use your pc, Intel is the sane choice. Try using autocad on ryzen, photoshop, adobe premiere. It&#039;s all shit. It&#039;ll be the most annoying laggy jank experience. Gaming on Intel is fine. <br><span class=\"quote\">&gt;inb4 a benchmark</span><br>Yeah when my 144hz display can only show 144fps, having 700fps isn&#039;t doing anything for me. It&#039;s such a meaningless thing. <br><span class=\"quote\">&gt;b-but muh future proofing</span><br>Poorfag cope, by the time games exist that aren&#039;t console ports actually take advantage of the hardware, I&#039;ll buy new hardware. Emulating games sucks by the way on ryzen cpus. Try playing ps2 or switch games. It&#039;s such a buggy mess, some games won&#039;t even load on Ryzen that load perfectly fine on Intel. Ryzen cpus are the biggest grift on computers right now. If you buy an amd cpu on purpose, I&#039;m sorry, you&#039;re too stupid to exist even in my vicinity and we can&#039;t be friends anymore.",
+      "time": 1705303837,
+      "resto": 98455667
+    },
+    {
+      "no": 98459923,
+      "now": "01/15/24(Mon)02:36:11",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98455667\" class=\"quotelink\">&gt;&gt;98455667</a><br>this is what happens when you pirate windows",
+      "time": 1705304171,
+      "resto": 98455667
+    },
+    {
+      "no": 98459950,
+      "now": "01/15/24(Mon)02:39:05",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98459923\" class=\"quotelink\">&gt;&gt;98459923</a><br>That has nothing to do with amd being shit. Plus if you don&#039;t use Linux in 2024, you have a severe mental disorder.",
+      "time": 1705304345,
+      "resto": 98455667
+    },
+    {
+      "no": 98459955,
+      "now": "01/15/24(Mon)02:39:32",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98459861\" class=\"quotelink\">&gt;&gt;98459861</a><br>tldr poorfag cope",
+      "time": 1705304372,
+      "resto": 98455667
+    },
+    {
+      "no": 98460007,
+      "now": "01/15/24(Mon)02:44:16",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98459955\" class=\"quotelink\">&gt;&gt;98459955</a><br>My pc cost me 3 grand buddy. Ryzen is trash.",
+      "time": 1705304656,
+      "resto": 98455667
+    },
+    {
+      "no": 98460020,
+      "now": "01/15/24(Mon)02:45:17",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98459955\" class=\"quotelink\">&gt;&gt;98459955</a><br>In fact I own both a ryzen and intel desktop and the only one that has issues is the Ryzen one. I&#039;ve done extensive testing. Ryzen is trash.",
+      "time": 1705304717,
+      "resto": 98455667
+    },
+    {
+      "no": 98460186,
+      "now": "01/15/24(Mon)03:01:11",
+      "name": "Anonymous",
+      "com": "Wow Intel shills are going all out here.",
+      "time": 1705305671,
+      "resto": 98455667
+    },
+    {
+      "no": 98460998,
+      "now": "01/15/24(Mon)04:28:13",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98455813\" class=\"quotelink\">&gt;&gt;98455813</a><br>Faster",
+      "time": 1705310893,
+      "resto": 98455667
+    },
+    {
+      "no": 98461135,
+      "now": "01/15/24(Mon)04:42:10",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98459653\" class=\"quotelink\">&gt;&gt;98459653</a><br>still dont need it",
+      "time": 1705311730,
+      "resto": 98455667
+    },
+    {
+      "no": 98461328,
+      "now": "01/15/24(Mon)05:06:23",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98459860\" class=\"quotelink\">&gt;&gt;98459860</a><br>You could?",
+      "time": 1705313183,
+      "resto": 98455667
+    },
+    {
+      "no": 98461416,
+      "now": "01/15/24(Mon)05:18:46",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98455813\" class=\"quotelink\">&gt;&gt;98455813</a><br><a href=\"#p98460998\" class=\"quotelink\">&gt;&gt;98460998</a>",
+      "filename": "1678161239226222",
+      "ext": ".gif",
+      "w": 380,
+      "h": 496,
+      "tn_w": 95,
+      "tn_h": 125,
+      "tim": 1705313926809728,
+      "time": 1705313926,
+      "md5": "lEP2/DBiZx7jrHLgDBy8oA==",
+      "fsize": 1006164,
+      "resto": 98455667
+    },
+    {
+      "no": 98461620,
+      "now": "01/15/24(Mon)05:41:08",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98455667\" class=\"quotelink\">&gt;&gt;98455667</a><br>that&#039;s innovation<br>in the same way tvs take 10s+ to turn on while before it happened instantly<br>even the normal PC monitor takes several seconds to turn on",
+      "time": 1705315268,
+      "resto": 98455667
+    },
+    {
+      "no": 98461639,
+      "now": "01/15/24(Mon)05:42:52",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98459525\" class=\"quotelink\">&gt;&gt;98459525</a><br>try the same with 7600",
+      "time": 1705315372,
+      "resto": 98455667
+    },
+    {
+      "no": 98461654,
+      "now": "01/15/24(Mon)05:44:01",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98457817\" class=\"quotelink\">&gt;&gt;98457817</a><br><span class=\"quote\">&gt;Yes RAM in general requires memory training</span><br>wtf is &quot;memory training&quot;??<br>this never was an issue before during all the decades RAM was used",
+      "time": 1705315441,
+      "resto": 98455667
+    },
+    {
+      "no": 98461753,
+      "now": "01/15/24(Mon)05:53:19",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98455667\" class=\"quotelink\">&gt;&gt;98455667</a><br>That&#039;s just the hypervisor booting up to make sure you&#039;re not spreading misinformation with your PC",
+      "time": 1705315999,
+      "resto": 98455667
+    },
+    {
+      "no": 98461774,
+      "now": "01/15/24(Mon)05:55:09",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98459525\" class=\"quotelink\">&gt;&gt;98459525</a><br>How did you do it? Mine is twice slower <br>Startup finished in 12.088s (firmware) + 2.801s (loader) + 5.915s (kernel) + 2.090s (initrd) + 2.897s (userspace) = 25.793s <br>graphical.target reached after 2.479s in userspace.<br><br>Specs are same, but its b550 motherboard",
+      "time": 1705316109,
+      "resto": 98455667
+    },
+    {
+      "no": 98461802,
+      "now": "01/15/24(Mon)05:57:59",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98461654\" class=\"quotelink\">&gt;&gt;98461654</a><br>yes it was, you just don&#039;t know because of how fast it used to be.",
+      "time": 1705316279,
+      "resto": 98455667
+    },
+    {
+      "no": 98461880,
+      "now": "01/15/24(Mon)06:07:30",
+      "name": "Anonymous",
+      "com": "That sounds shitty. Guess I&#039;ll stick with my AMD Phenom II X6 1050T.",
+      "time": 1705316850,
+      "resto": 98455667
+    },
+    {
+      "no": 98461890,
+      "now": "01/15/24(Mon)06:08:15",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98455667\" class=\"quotelink\">&gt;&gt;98455667</a><br>memory related shit<br>kind of annoying but not a big deal on a desktop<br>pic rel is a x670 board at latest bios, 7950x, 6000mhz ddr5 vs a mid-range i5 13th gen laptop<br>i disabled fast boot cus it just feels dirty, only shaved off a few seconds anyway",
+      "filename": "105929394962",
+      "ext": ".png",
+      "w": 170,
+      "h": 77,
+      "tn_w": 125,
+      "tn_h": 56,
+      "tim": 1705316895608745,
+      "time": 1705316895,
+      "md5": "m29HGQMhqku9ElXwTFeGtw==",
+      "fsize": 1354,
+      "resto": 98455667
+    },
+    {
+      "no": 98461983,
+      "now": "01/15/24(Mon)06:18:02",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98455667\" class=\"quotelink\">&gt;&gt;98455667</a><br><br>How are you doing this ?<br><br>My 5800x boots pretty much instantly<br><br>Is your os on a hdd and not an SSD ?",
+      "time": 1705317482,
+      "resto": 98455667
+    },
+    {
+      "no": 98462051,
+      "now": "01/15/24(Mon)06:25:32",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98461983\" class=\"quotelink\">&gt;&gt;98461983</a><br>This is an Intelaviv shill thread boyo. You can&#039;t post facts here.",
+      "time": 1705317932,
+      "resto": 98455667
+    },
+    {
+      "no": 98462082,
+      "now": "01/15/24(Mon)06:29:53",
+      "name": "Anonymous",
+      "com": "<span class=\"quote\">&gt;25% slower RAM speed compatibility</span><br><span class=\"quote\">&gt;requires retraining every boot that takes minutes</span><br>AMD bros... We lost...",
+      "time": 1705318193,
+      "resto": 98455667
+    },
+    {
+      "no": 98462184,
+      "now": "01/15/24(Mon)06:38:13",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98461983\" class=\"quotelink\">&gt;&gt;98461983</a><br>your 5800x isn&#039;t using AM5",
+      "time": 1705318693,
+      "resto": 98455667
+    },
+    {
+      "no": 98462187,
+      "now": "01/15/24(Mon)06:38:34",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98461890\" class=\"quotelink\">&gt;&gt;98461890</a><br>fast boot sucks, I always have it turned off because the problems that can occur from fast boot will take you longer to fix than the few seconds you save on each bootup.",
+      "time": 1705318714,
+      "resto": 98455667
+    },
+    {
+      "no": 98462211,
+      "now": "01/15/24(Mon)06:41:02",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98460186\" class=\"quotelink\">&gt;&gt;98460186</a><br><a href=\"#p98462051\" class=\"quotelink\">&gt;&gt;98462051</a><br>Why are intelchads living rent free in this poozenjeet&#039;s head?",
+      "time": 1705318862,
+      "resto": 98455667
+    },
+    {
+      "no": 98462287,
+      "now": "01/15/24(Mon)06:47:29",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98462187\" class=\"quotelink\">&gt;&gt;98462187</a><br>what kind of problems can occur during fastboot?",
+      "time": 1705319249,
+      "resto": 98455667
+    },
+    {
+      "no": 98462330,
+      "now": "01/15/24(Mon)06:52:42",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98462287\" class=\"quotelink\">&gt;&gt;98462287</a><br>Any of the problems that can occur using hibernate.<br><br>On my previous PC, bluetooth would never work after coming out of fast boot. No issues since powering off cleanly, or using sleep.",
+      "time": 1705319562,
+      "resto": 98455667
+    },
+    {
+      "no": 98462400,
+      "now": "01/15/24(Mon)07:03:25",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98455667\" class=\"quotelink\">&gt;&gt;98455667</a><br>Because you touch yourself at night.",
+      "time": 1705320205,
+      "resto": 98455667
+    },
+    {
+      "no": 98464603,
+      "now": "01/15/24(Mon)10:02:48",
+      "name": "Anonymous",
+      "com": "lol true <br><span class=\"quote\">&gt; recently built a pc after being on a 4th gen intel a long time.</span><br><span class=\"quote\">&gt;decide to go amd and get the 7800x3d</span><br><span class=\"quote\">&gt;spend my evening building the computer.</span><br><span class=\"quote\">&gt; moment of truth.jpeg</span><br><span class=\"quote\">&gt;30 sec in no post, so turn off</span><br><span class=\"quote\">&gt; try again.... same result</span><br><span class=\"quote\">&gt; frantically googling wtf</span><br><span class=\"quote\">&gt; read reddit, apparently i am not qualified enough to install RAM</span><br><span class=\"quote\">&gt; try all 16 possible ram installation options</span><br><span class=\"quote\">&gt; nuffin</span><br><span class=\"quote\">&gt; just get depressed and leave the pc on and go for a smoke</span><br><span class=\"quote\">&gt; get back home see bios on</span><br><span class=\"quote\">&gt; what happened? why did my old ass computer booted way faster.</span><br>The moral is if you guys build on AM5 and can&#039;t seem to post just wait at least 5 min",
+      "time": 1705330968,
+      "resto": 98455667
+    },
+    {
+      "no": 98464663,
+      "now": "01/15/24(Mon)10:06:13",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98461983\" class=\"quotelink\">&gt;&gt;98461983</a><br>this thread is literally a bunch of intel users pulling a psyop",
+      "time": 1705331173,
+      "resto": 98455667
+    },
+    {
+      "no": 98464708,
+      "now": "01/15/24(Mon)10:09:52",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98455667\" class=\"quotelink\">&gt;&gt;98455667</a><br>It&#039;s the memory training shit on AM5. I don&#039;t know if it is an AGESA thing or if it comes down to the motherboard itself, but newer firmware might help. I just updated to 2.02 on my Asscock mobo and my boots are very fast.",
+      "time": 1705331392,
+      "resto": 98455667
+    },
+    {
+      "no": 98464719,
+      "now": "01/15/24(Mon)10:10:24",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98455667\" class=\"quotelink\">&gt;&gt;98455667</a><br>Seems like a (You) problem. My 5800X3D setup is already at the Plasma desktop on Arch Linux (which I use btw) after 30 seconds.",
+      "time": 1705331424,
+      "resto": 98455667
+    },
+    {
+      "no": 98465197,
+      "now": "01/15/24(Mon)10:41:20",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98455667\" class=\"quotelink\">&gt;&gt;98455667</a><br>works on my machine<br>12 seconds to desktop",
+      "time": 1705333280,
+      "resto": 98455667
+    },
+    {
+      "no": 98465238,
+      "now": "01/15/24(Mon)10:43:48",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98459860\" class=\"quotelink\">&gt;&gt;98459860</a><br>enjoy your loss in memory performance because windows is a piece of dogshit<br><br>https://old.reddit.com/r/Amd/commen<wbr>ts/18vkjuy/why_arent_we_all_talking<wbr>_about_the_am5_memory/<br>note: this also happens to am4 &amp; intel, despite what the title of this retarded redditor says",
+      "time": 1705333428,
+      "resto": 98455667
+    },
+    {
+      "no": 98465355,
+      "now": "01/15/24(Mon)10:50:03",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98457817\" class=\"quotelink\">&gt;&gt;98457817</a><br><span class=\"quote\">&gt;For DDR5 Intel&#039;s memory controller is more mature which is why training time isn&#039;t as bad</span><br>That&#039;s wrong, the funny part is that training is faster and DDR5 compatibility is better on AM5 with motherboards that use later builds of AGESA. <br><a href=\"#p98457995\" class=\"quotelink\">&gt;&gt;98457995</a><br>Only during the first setup with a new DIMM configuration. The UEFI remembers it and sequential cold, boot-ups are much faster.",
+      "time": 1705333803,
+      "resto": 98455667
+    },
+    {
+      "no": 98465763,
+      "now": "01/15/24(Mon)11:14:53",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98455667\" class=\"quotelink\">&gt;&gt;98455667</a><br>I just suspend the thing when I go to sleep or leave the house, and then when I turn it on it resumes in 1 second, exactly where it was. Super convenient.<br><br>Who the fuck actually turns off their computer in 2024??",
+      "filename": "GDVUeHYWAAcYuw8",
+      "ext": ".jpg",
+      "w": 1080,
+      "h": 1327,
+      "tn_w": 101,
+      "tn_h": 125,
+      "tim": 1705335293179576,
+      "time": 1705335293,
+      "md5": "0gD4wxv4Q2BZo0DlPKxcVg==",
+      "fsize": 374153,
+      "resto": 98455667
+    },
+    {
+      "no": 98466145,
+      "now": "01/15/24(Mon)11:42:06",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98465763\" class=\"quotelink\">&gt;&gt;98465763</a><br><span class=\"quote\">&gt;Who the fuck actually turns off their computer in 2024??</span><br>I turn it off and unplug it every night before bed, and leave it unplugged unless I plan to use it.",
+      "time": 1705336926,
+      "resto": 98455667
+    },
+    {
+      "no": 98466199,
+      "now": "01/15/24(Mon)11:45:02",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98459861\" class=\"quotelink\">&gt;&gt;98459861</a><br>Is this real? Emulators don&#039;t work on ryzen? <br>Don&#039;t ruse me bro",
+      "time": 1705337102,
+      "resto": 98455667
+    },
+    {
+      "no": 98466834,
+      "now": "01/15/24(Mon)12:25:07",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98465238\" class=\"quotelink\">&gt;&gt;98465238</a><br>So it&#039;s only a Windows problem?",
+      "time": 1705339507,
+      "resto": 98455667
+    },
+    {
+      "no": 98466849,
+      "now": "01/15/24(Mon)12:26:24",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98455667\" class=\"quotelink\">&gt;&gt;98455667</a><br>loading the microcode and instructions intel doesn&#039;t have.",
+      "filename": "763b9ee493a395f94c31cb261915efcf--satan-the-world",
+      "ext": ".jpg",
+      "w": 538,
+      "h": 720,
+      "tn_w": 93,
+      "tn_h": 125,
+      "tim": 1705339584345953,
+      "time": 1705339584,
+      "md5": "i2p9zyW347TnTt1nAt4sWw==",
+      "fsize": 58370,
+      "resto": 98455667
+    },
+    {
+      "no": 98466855,
+      "now": "01/15/24(Mon)12:26:35",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98466145\" class=\"quotelink\">&gt;&gt;98466145</a><br>um, ok psycho",
+      "time": 1705339595,
+      "resto": 98455667
+    },
+    {
+      "no": 98466874,
+      "now": "01/15/24(Mon)12:27:35",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98466145\" class=\"quotelink\">&gt;&gt;98466145</a><br><br>only 50+ year olds do such shit",
+      "time": 1705339655,
+      "resto": 98455667
+    },
+    {
+      "no": 98466981,
+      "now": "01/15/24(Mon)12:33:58",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98466855\" class=\"quotelink\">&gt;&gt;98466855</a><br><a href=\"#p98466874\" class=\"quotelink\">&gt;&gt;98466874</a><br>I consider it normal. You guys are the weirdos, leaving shit on all the time.",
+      "time": 1705340038,
+      "resto": 98455667
+    },
+    {
+      "no": 98466990,
+      "now": "01/15/24(Mon)12:34:41",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98466199\" class=\"quotelink\">&gt;&gt;98466199</a><br>Emulators run the best on Ryzen because it has instructions Intel doesn&#039;t (like AVX512) and those are used by emulators.<br><br><a href=\"#p98455667\" class=\"quotelink\">&gt;&gt;98455667</a><br>Turn on memory context restore.",
+      "time": 1705340081,
+      "resto": 98455667
+    },
+    {
+      "no": 98467020,
+      "now": "01/15/24(Mon)12:36:19",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98466874\" class=\"quotelink\">&gt;&gt;98466874</a><br><span class=\"quote\">&gt;*physically unplugs his computer in fear of being spied on*</span><br><span class=\"quote\">&gt;proceeds to use Windows with an online account, and browse TikTok on his phone all day long.</span><br><br>why are gen-x and boomers so fucking retards",
+      "filename": "1609866321481",
+      "ext": ".jpg",
+      "w": 1053,
+      "h": 864,
+      "tn_w": 125,
+      "tn_h": 102,
+      "tim": 1705340179436452,
+      "time": 1705340179,
+      "md5": "Q4tP4WQfFNtstwgzRRcgvg==",
+      "fsize": 97897,
+      "resto": 98455667
+    },
+    {
+      "no": 98467071,
+      "now": "01/15/24(Mon)12:39:26",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98466981\" class=\"quotelink\">&gt;&gt;98466981</a><br>it is not &quot;on&quot;, it is more like in a comatose state, only needs about 1Watt to keep the data in ram, nothing else is &quot;on&quot;<br>the motherboard/psu are not being stressed at all, so you are not wearing down the capacitors lifetime.",
+      "time": 1705340366,
+      "resto": 98455667
+    },
+    {
+      "no": 98467074,
+      "now": "01/15/24(Mon)12:39:42",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98467020\" class=\"quotelink\">&gt;&gt;98467020</a><br>I don&#039;t understand the unplugging stuff unless you want to cut down on vampire loads and/or avoid surge overloads.",
+      "time": 1705340382,
+      "resto": 98455667
+    },
+    {
+      "no": 98467095,
+      "now": "01/15/24(Mon)12:40:51",
+      "name": "Anonymous",
+      "com": "I&#039;m used to like 1+ minute during HDD times; can&#039;t imagine fighting over 12-20 seconds.",
+      "time": 1705340451,
+      "resto": 98455667
+    },
+    {
+      "no": 98467125,
+      "now": "01/15/24(Mon)12:43:03",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98455667\" class=\"quotelink\">&gt;&gt;98455667</a><br>DO NOT REBOOT DO NOT REBOOT WHY DID YOU REBOOT",
+      "time": 1705340583,
+      "resto": 98455667
+    },
+    {
+      "no": 98467135,
+      "now": "01/15/24(Mon)12:43:28",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98466981\" class=\"quotelink\">&gt;&gt;98466981</a><br>modern PSUs have EuP of &lt;&lt;1W when turned off<br><br><a href=\"#p98467020\" class=\"quotelink\">&gt;&gt;98467020</a><br>Because they want to save pennies at any inconvenience. Pulling plugs will just fuck up connectors. Even an extension cord with a switch would be less gen-x tier.<br><span class=\"quote\">&gt;m-muh electricity bill!</span>",
+      "time": 1705340608,
+      "resto": 98455667
+    },
+    {
+      "no": 98467136,
+      "now": "01/15/24(Mon)12:43:30",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98455667\" class=\"quotelink\">&gt;&gt;98455667</a><br>User error<br>Disable EXPO and then complain",
+      "time": 1705340610,
+      "resto": 98455667
+    },
+    {
+      "no": 98468293,
+      "now": "01/15/24(Mon)13:55:34",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98466855\" class=\"quotelink\">&gt;&gt;98466855</a><br><a href=\"#p98466874\" class=\"quotelink\">&gt;&gt;98466874</a><br><a href=\"#p98467020\" class=\"quotelink\">&gt;&gt;98467020</a><br>I take it you&#039;ve never lived anywhere such that weather can just fuck your electronics up?",
+      "time": 1705344934,
+      "resto": 98455667
+    },
+    {
+      "no": 98468339,
+      "now": "01/15/24(Mon)13:58:05",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98455667\" class=\"quotelink\">&gt;&gt;98455667</a><br>First world problems",
+      "time": 1705345085,
+      "resto": 98455667
+    },
+    {
+      "no": 98468648,
+      "now": "01/15/24(Mon)14:15:45",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98467095\" class=\"quotelink\">&gt;&gt;98467095</a><br>we aren&#039;t talking about 20-30s boots, we are talking about extra 20-30s before the actual OS boot",
+      "time": 1705346145,
+      "resto": 98455667
+    },
+    {
+      "no": 98468671,
+      "now": "01/15/24(Mon)14:17:09",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98468293\" class=\"quotelink\">&gt;&gt;98468293</a><br>I get that you will disconnect your electronics when there is a thunderstorm in your area, sure even I would do it probably.<br>but that&#039;s an edge case, does this happen everyday? doubt it.<br>unless you live inside an active volcano or something<br>isn&#039;t this why circuit breakers are for?<br><br>I don&#039;t get it, do you unplug your computer every day of the year? even if the weather outside is perfectly calm and fine?",
+      "time": 1705346229,
+      "resto": 98455667
+    },
+    {
+      "no": 98468694,
+      "now": "01/15/24(Mon)14:18:07",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98459653\" class=\"quotelink\">&gt;&gt;98459653</a><br>you shouldn&#039;t be playing videos and should be kys if you&#039;re a troon.",
+      "time": 1705346287,
+      "resto": 98455667
+    },
+    {
+      "no": 98468705,
+      "now": "01/15/24(Mon)14:18:47",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98455667\" class=\"quotelink\">&gt;&gt;98455667</a><br>idk, if you debug it you might find yet another errata in Ryzen shit.",
+      "time": 1705346327,
+      "resto": 98455667
+    },
+    {
+      "no": 98468720,
+      "now": "01/15/24(Mon)14:19:47",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98455754\" class=\"quotelink\">&gt;&gt;98455754</a><br><a href=\"#p98455828\" class=\"quotelink\">&gt;&gt;98455828</a><br>what the absolute fuck? AMD systems already on serial attached memory buses? Never heard of trainers for conventional DRAM",
+      "time": 1705346387,
+      "resto": 98455667
+    },
+    {
+      "no": 98468755,
+      "now": "01/15/24(Mon)14:22:14",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98468293\" class=\"quotelink\">&gt;&gt;98468293</a><br><span class=\"quote\">&gt;t. never heard of UPSes and surge suppressors.</span>",
+      "time": 1705346534,
+      "resto": 98455667
+    },
+    {
+      "no": 98468760,
+      "now": "01/15/24(Mon)14:22:22",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98468293\" class=\"quotelink\">&gt;&gt;98468293</a><br>I never disconnected anything in 30 years during lightning and my tech is fine<br>you are crazy if you worry about &quot;weather&quot;<br>well, you better duck during the upcoming solar flare, we are nearing a new maximum soon",
+      "time": 1705346542,
+      "resto": 98455667
+    },
+    {
+      "no": 98468942,
+      "now": "01/15/24(Mon)14:31:19",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98457982\" class=\"quotelink\">&gt;&gt;98457982</a><br><span class=\"quote\">&gt;Startup finished in 11.357s (firmware) + 1.037s (loader) + 952ms (kernel) + 2.761s (initrd) + 2.885s (userspace) = 18.995s </span><br>my firmware times are awful kek (5900X)",
+      "time": 1705347079,
+      "resto": 98455667
+    },
+    {
+      "no": 98469054,
+      "now": "01/15/24(Mon)14:36:48",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98468755\" class=\"quotelink\">&gt;&gt;98468755</a><br>Does nothing when your electricity isn&#039;t stable and parts still die because of a brownout.<br><a href=\"#p98468671\" class=\"quotelink\">&gt;&gt;98468671</a><br>I&#039;ve been burned enough that I don&#039;t trust my third world country&#039;s electrical grid to not screw me over.<br>If I&#039;m not awake to monitor it, it gets unplugged.<br><a href=\"#p98468760\" class=\"quotelink\">&gt;&gt;98468760</a><br>Must be nice to live in a first world country with a functional electrical grid.",
+      "time": 1705347408,
+      "resto": 98455667
+    },
+    {
+      "no": 98469092,
+      "now": "01/15/24(Mon)14:38:48",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98455667\" class=\"quotelink\">&gt;&gt;98455667</a><br>minix-based spyware in Intel is faster than windows-iot based spyware in amd<br><br><a href=\"#p98455754\" class=\"quotelink\">&gt;&gt;98455754</a><br><span class=\"quote\">&gt;turn on spyware</span><br>(joke, you can&#039;t turn it off)",
+      "time": 1705347528,
+      "resto": 98455667
+    },
+    {
+      "no": 98469113,
+      "now": "01/15/24(Mon)14:39:48",
+      "name": "Anonymous",
+      "com": "my last boot time is 13.7s is this bad or what these days<br><br>ryzen 3 btw",
+      "time": 1705347588,
+      "resto": 98455667
+    },
+    {
+      "no": 98469138,
+      "now": "01/15/24(Mon)14:40:58",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98469113\" class=\"quotelink\">&gt;&gt;98469113</a><br>that&#039;s exactly the same as my laptop&#039;s 9th gen i5",
+      "time": 1705347658,
+      "resto": 98455667
+    },
+    {
+      "no": 98469176,
+      "now": "01/15/24(Mon)14:43:14",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98457817\" class=\"quotelink\">&gt;&gt;98457817</a><br><span class=\"quote\">&gt;Yes RAM in general requires memory training.</span><br>since when? I thought motherboard trace lengths and positioning of DIMMs was intentional. Did they finally give up on this and just force AMD and Intel to figure out the appropriate timings themselves or what? I&#039;m genuinely confused. Perhaps it was always training, but I was certain that was only necessary for exotic memory setups.",
+      "time": 1705347794,
+      "resto": 98455667
+    },
+    {
+      "no": 98469207,
+      "now": "01/15/24(Mon)14:44:52",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98468942\" class=\"quotelink\">&gt;&gt;98468942</a><br>jesus.<br><pre class=\"prettyprint\">Startup finished in 13.101s (firmware) + 1.794s (loader) + 1.051s (kernel) + 18.463s (initrd) + 10.427s (userspace) = 44.838s <br>graphical.target reached after 10.378s in userspace.<br></pre><br>why is it taking to long in firmware?<br>i9-12900k btw.",
+      "time": 1705347892,
+      "resto": 98455667
+    },
+    {
+      "no": 98469245,
+      "now": "01/15/24(Mon)14:46:36",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98469138\" class=\"quotelink\">&gt;&gt;98469138</a><br>so why does this thread exist",
+      "time": 1705347996,
+      "resto": 98455667
+    },
+    {
+      "no": 98469267,
+      "now": "01/15/24(Mon)14:47:30",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98469207\" class=\"quotelink\">&gt;&gt;98469207</a><br><span class=\"quote\">&gt;</span><pre class=\"prettyprint\">18.463s (initrd) + 10.427s (userspace)</pre><br>wtf anon, what&#039;s happening there",
+      "time": 1705348050,
+      "resto": 98455667
+    },
+    {
+      "no": 98469272,
+      "now": "01/15/24(Mon)14:47:46",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98469267\" class=\"quotelink\">&gt;&gt;98469267</a><br>me typing my password is my guess.",
+      "time": 1705348066,
+      "resto": 98455667
+    },
+    {
+      "no": 98469284,
+      "now": "01/15/24(Mon)14:48:31",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98469272\" class=\"quotelink\">&gt;&gt;98469272</a><br>I don&#039;t think that counts in those times. I have to type mine too",
+      "time": 1705348111,
+      "resto": 98455667
+    },
+    {
+      "no": 98469386,
+      "now": "01/15/24(Mon)14:53:33",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98469054\" class=\"quotelink\">&gt;&gt;98469054</a><br>For the prices we pay in the EU i expect it to be flawless. We pay quadruple than what is charged outside EU.",
+      "time": 1705348413,
+      "resto": 98455667
+    },
+    {
+      "no": 98469538,
+      "now": "01/15/24(Mon)15:01:49",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98466849\" class=\"quotelink\">&gt;&gt;98466849</a><br>Yes AM5 has a built-in spyware",
+      "time": 1705348909,
+      "resto": 98455667
+    },
+    {
+      "no": 98469656,
+      "now": "01/15/24(Mon)15:07:51",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98455667\" class=\"quotelink\">&gt;&gt;98455667</a><br>amd has a really shit memory controller and they have had a shit memory controller since ryzen first launched.",
+      "time": 1705349271,
+      "resto": 98455667
+    },
+    {
+      "no": 98469684,
+      "now": "01/15/24(Mon)15:09:25",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98457817\" class=\"quotelink\">&gt;&gt;98457817</a><br>my intel 13900k with ddr5 6000 boots in two seconds. amd is just horse shit for jackasses that complain about muh Jews. i honestly have no idea how AMD became a nazi company.",
+      "time": 1705349365,
+      "resto": 98455667
+    },
+    {
+      "no": 98469710,
+      "now": "01/15/24(Mon)15:10:52",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98469267\" class=\"quotelink\">&gt;&gt;98469267</a><br>what distro? that isn&#039;t hardware. that seems like a distro bug. do you use encryption or something?",
+      "time": 1705349452,
+      "resto": 98455667
+    },
+    {
+      "no": 98469759,
+      "now": "01/15/24(Mon)15:13:24",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98469538\" class=\"quotelink\">&gt;&gt;98469538</a><br><span class=\"quote\">&gt;Yes AM5 has a built-in spyware</span><br>Cannot be worse than Intel ME. But at least SGX was so broken that intel did cause leaks of bluray encryption keys. It&#039;s fun seeing a CPU manufacturer mess up that bad:<br>https://media.ccc.de/v/37c3-12296-f<wbr>ull_aacsess_exposing_and_exploiting<wbr>_aacsv2_uhd_drm_for_your_viewing_pl<wbr>easure<br><br>German hacker conference from just 2 weeks ago.",
+      "time": 1705349604,
+      "resto": 98455667
+    },
+    {
+      "no": 98469764,
+      "now": "01/15/24(Mon)15:13:49",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98455667\" class=\"quotelink\">&gt;&gt;98455667</a><br>My MSI mobo always tries to train my RAM every single time and gets stuck - even leaving it for 24 hours isn&#039;t enough, so I just always reboot twice to skip it.",
+      "time": 1705349629,
+      "resto": 98455667
+    },
+    {
+      "no": 98469772,
+      "now": "01/15/24(Mon)15:14:12",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98455667\" class=\"quotelink\">&gt;&gt;98455667</a><br>5600x anon here, my computer boots fine<br>i think you just suck at setting up computers",
+      "time": 1705349652,
+      "resto": 98455667
+    },
+    {
+      "no": 98469840,
+      "now": "01/15/24(Mon)15:17:06",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98455667\" class=\"quotelink\">&gt;&gt;98455667</a><br>My PC.",
+      "filename": "1",
+      "ext": ".png",
+      "w": 1360,
+      "h": 135,
+      "tn_w": 125,
+      "tn_h": 12,
+      "tim": 1705349826354169,
+      "time": 1705349826,
+      "md5": "NppAVtoWGkMfEsnWvxyRZw==",
+      "fsize": 10832,
+      "resto": 98455667
+    },
+    {
+      "no": 98469949,
+      "now": "01/15/24(Mon)15:22:18",
+      "name": "How to off myself asap",
+      "com": "<a href=\"#p98455667\" class=\"quotelink\">&gt;&gt;98455667</a><br>Mine boots up in less than 10 seconds and I have zen+ cpu with sata ssd as main drive",
+      "time": 1705350138,
+      "resto": 98455667
+    },
+    {
+      "no": 98470113,
+      "now": "01/15/24(Mon)15:30:46",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98469267\" class=\"quotelink\">&gt;&gt;98469267</a><br>this<br>wtf? my i5 is 10 times faster",
+      "time": 1705350646,
+      "resto": 98455667
+    },
+    {
+      "no": 98471337,
+      "now": "01/15/24(Mon)16:25:27",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98455667\" class=\"quotelink\">&gt;&gt;98455667</a><br><span class=\"quote\">&gt;Taking 30 seconds just to get to the POST screen is ridiculous.</span><br>I wish mine was that fast.<br>Takes well over a minute for me.<br><br>ASUS ProArt X670E with Ryzen 9 7950X3D",
+      "time": 1705353927,
+      "resto": 98455667
+    },
+    {
+      "no": 98471574,
+      "now": "01/15/24(Mon)16:38:02",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98471337\" class=\"quotelink\">&gt;&gt;98471337</a><br><span class=\"quote\">&gt;Takes well over a minute for me.</span><br>I wish mine was that fast.<br>Takes well over two minutes for me.<br><br>MSI MPG Z790 Carbon WiFi with Intel 9 13900k",
+      "time": 1705354682,
+      "resto": 98455667
+    },
+    {
+      "no": 98472242,
+      "now": "01/15/24(Mon)17:14:19",
+      "name": "Anonymous",
+      "com": "turn on fast boot mine takes like 5 seconds bro",
+      "time": 1705356859,
+      "resto": 98455667
+    },
+    {
+      "no": 98472329,
+      "now": "01/15/24(Mon)17:20:32",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98455667\" class=\"quotelink\">&gt;&gt;98455667</a><br><span class=\"quote\">&gt;why does my shitty computer do something no one else&#039;s computer does?</span><br>another one of these threads?  YAWN",
+      "time": 1705357232,
+      "resto": 98455667
+    },
+    {
+      "no": 98472384,
+      "now": "01/15/24(Mon)17:24:09",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98462400\" class=\"quotelink\">&gt;&gt;98462400</a><br>ha ha ha ha le jewish fat man cartoon joke so randummmm",
+      "time": 1705357449,
+      "resto": 98455667
+    },
+    {
+      "no": 98472492,
+      "now": "01/15/24(Mon)17:32:21",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98469207\" class=\"quotelink\">&gt;&gt;98469207</a><br>Have you udpated your bios since setting up the machine?",
+      "time": 1705357941,
+      "resto": 98455667
+    },
+    {
+      "no": 98473329,
+      "now": "01/15/24(Mon)18:25:47",
+      "name": "Anonymous",
+      "com": "<span class=\"quote\">&gt;memezen</span><br><span class=\"quote\">&gt;memory controller sucks? check</span><br><span class=\"quote\">&gt;fast boot times? hahaha lolnope! check</span><br><span class=\"quote\">&gt;smoldering crater in your motherboard after turning it on? check</span><br><span class=\"quote\">&gt;working avx/avx2? lolnope! check</span><br><span class=\"quote\">&gt;lisa su laughing all the way to the bank? priceless</span>",
+      "time": 1705361147,
+      "resto": 98455667
+    },
+    {
+      "no": 98473723,
+      "now": "01/15/24(Mon)18:53:10",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98455667\" class=\"quotelink\">&gt;&gt;98455667</a><br>I don&#039;t think I&#039;ve ever had any PC take more than 10 seconds to POST. my current main rig (pic related) is at the windows login screen in 10ish seconds. my little Ryzen 3 3200G HTPC does it in about 15. you&#039;ve got a faulty component or you&#039;ve got something configured wrong in the BIOS.",
+      "filename": "specs",
+      "ext": ".jpg",
+      "w": 1229,
+      "h": 548,
+      "tn_w": 125,
+      "tn_h": 55,
+      "tim": 1705362790545433,
+      "time": 1705362790,
+      "md5": "AuQ6tEpHwBC3J6cpL9uisQ==",
+      "fsize": 295345,
+      "resto": 98455667
+    },
+    {
+      "no": 98473749,
+      "now": "01/15/24(Mon)18:54:49",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98473723\" class=\"quotelink\">&gt;&gt;98473723</a><br>5900X bro",
+      "time": 1705362889,
+      "resto": 98455667
+    },
+    {
+      "no": 98473814,
+      "now": "01/15/24(Mon)18:59:41",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98473723\" class=\"quotelink\">&gt;&gt;98473723</a><br><span class=\"quote\">&gt;amdrone thinks zen3 boot times are the same as zen4 boot times</span>",
+      "time": 1705363181,
+      "resto": 98455667
+    },
+    {
+      "no": 98473843,
+      "now": "01/15/24(Mon)19:01:18",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98473329\" class=\"quotelink\">&gt;&gt;98473329</a><br>Don&#039;t forget the broken fast movsb thing too.",
+      "time": 1705363278,
+      "resto": 98455667
+    },
+    {
+      "no": 98473869,
+      "now": "01/15/24(Mon)19:02:27",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98468671\" class=\"quotelink\">&gt;&gt;98468671</a><br><span class=\"quote\">&gt;does this happen everyday?</span><br>I see at least 5 line transition events in my UPS logs a week.",
+      "time": 1705363347,
+      "resto": 98455667
+    },
+    {
+      "no": 98473878,
+      "now": "01/15/24(Mon)19:03:24",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98473814\" class=\"quotelink\">&gt;&gt;98473814</a><br><span class=\"quote\">&gt;reading comprehension</span><br><span class=\"quote\">&gt;2024</span><br><br>where was zen3 mentioned in the OP?",
+      "time": 1705363404,
+      "resto": 98455667
+    },
+    {
+      "no": 98473883,
+      "now": "01/15/24(Mon)19:03:36",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98469054\" class=\"quotelink\">&gt;&gt;98469054</a><br><span class=\"quote\">&gt;brownout.</span><br>UPSes should handle brownouts smoothly.",
+      "time": 1705363416,
+      "resto": 98455667
+    },
+    {
+      "no": 98474041,
+      "now": "01/15/24(Mon)19:16:15",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98473749\" class=\"quotelink\">&gt;&gt;98473749</a><br><span class=\"quote\">&gt;mfw my ROG Ally has the exact same multicore performance as my 5900X and much faster single core</span><br><span class=\"quote\">&gt;mfw my Ally as an entire handheld pc is cheaper than my 5900X when I got it on launch</span><br>It&#039;s crazy how much Ryzen improves every generation.",
+      "time": 1705364175,
+      "resto": 98455667
+    },
+    {
+      "no": 98474068,
+      "now": "01/15/24(Mon)19:18:09",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98473878\" class=\"quotelink\">&gt;&gt;98473878</a>",
+      "filename": "context",
+      "ext": ".png",
+      "w": 480,
+      "h": 360,
+      "tn_w": 125,
+      "tn_h": 93,
+      "tim": 1705364289220802,
+      "time": 1705364289,
+      "md5": "mFaPi/j536wB8BBanGyKpA==",
+      "fsize": 258625,
+      "resto": 98455667
+    },
+    {
+      "no": 98474073,
+      "now": "01/15/24(Mon)19:18:28",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98474041\" class=\"quotelink\">&gt;&gt;98474041</a><br>kek, you&#039;re not wrong, if I didn&#039;t become a poorfag since I got my 5900X I&#039;d probably get a 7950X3D<br>I spent 1200 bucks for the cpu, mobo and ram so I might as well make it last for a while anyway, hopefully I&#039;m not poor anymore when the next generation releases",
+      "time": 1705364308,
+      "resto": 98455667
+    },
+    {
+      "no": 98474087,
+      "now": "01/15/24(Mon)19:19:38",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98473883\" class=\"quotelink\">&gt;&gt;98473883</a><br>Keyword being &quot;should&quot; however the UPS failed too.",
+      "time": 1705364378,
+      "resto": 98455667
+    },
+    {
+      "no": 98474130,
+      "now": "01/15/24(Mon)19:23:08",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98473843\" class=\"quotelink\">&gt;&gt;98473843</a><br>how the hell did amd break a mov instruction?",
+      "time": 1705364588,
+      "resto": 98455667
+    },
+    {
+      "no": 98474216,
+      "now": "01/15/24(Mon)19:29:06",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98474087\" class=\"quotelink\">&gt;&gt;98474087</a><br>What brand?  How old was the battery?",
+      "time": 1705364946,
+      "resto": 98455667
+    },
+    {
+      "no": 98474790,
+      "now": "01/15/24(Mon)20:13:43",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98474216\" class=\"quotelink\">&gt;&gt;98474216</a><br><span class=\"quote\">&gt;How old was the battery?</span><br>At the time it was 6 months old.<br><span class=\"quote\">&gt;What brand?</span><br>Zebronics.",
+      "time": 1705367623,
+      "resto": 98455667
+    },
+    {
+      "no": 98476065,
+      "now": "01/15/24(Mon)21:40:52",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98464663\" class=\"quotelink\">&gt;&gt;98464663</a><br>I get the same long POST time on my x470/Ryzen 7 2700x, nobody is shilling anything",
+      "time": 1705372852,
+      "resto": 98455667
+    },
+    {
+      "no": 98476099,
+      "now": "01/15/24(Mon)21:42:38",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98461774\" class=\"quotelink\">&gt;&gt;98461774</a><br>He&#039;s probably using Windows.",
+      "time": 1705372958,
+      "resto": 98455667
+    },
+    {
+      "no": 98476149,
+      "now": "01/15/24(Mon)21:47:02",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98464603\" class=\"quotelink\">&gt;&gt;98464603</a><br>oh yeah am4 also does that on the very first boot. happened with my 3600 and my 5800X3D. fuckin weird.",
+      "time": 1705373222,
+      "resto": 98455667
+    },
+    {
+      "no": 98476163,
+      "now": "01/15/24(Mon)21:47:41",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98465763\" class=\"quotelink\">&gt;&gt;98465763</a><br>I turn it off when I go to sleep for the night. I don&#039;t see how it&#039;s a real issue though. I wake up and on my way to take a piss i press the power button on my PC, by the time I&#039;m done even the slowest booting system would have had plenty of time.",
+      "time": 1705373261,
+      "resto": 98455667
+    },
+    {
+      "no": 98476182,
+      "now": "01/15/24(Mon)21:49:19",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98455667\" class=\"quotelink\">&gt;&gt;98455667</a><br>There&#039;s some sort of fundamental flaw with whatever computer you&#039;re talking about",
+      "time": 1705373359,
+      "resto": 98455667
+    },
+    {
+      "no": 98476231,
+      "now": "01/15/24(Mon)21:52:18",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98461890\" class=\"quotelink\">&gt;&gt;98461890</a><br>Damn, I have ddr5-6000 and a 7950x and it takes 1 minute before I see the bios screen.",
+      "time": 1705373538,
+      "resto": 98455667
+    },
+    {
+      "no": 98476585,
+      "now": "01/15/24(Mon)22:22:34",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98476231\" class=\"quotelink\">&gt;&gt;98476231</a><br>Are you not using memory context restore?",
+      "time": 1705375354,
+      "resto": 98455667
+    },
+    {
+      "no": 98476630,
+      "now": "01/15/24(Mon)22:26:04",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98455667\" class=\"quotelink\">&gt;&gt;98455667</a><br>By the time my monitor comes on, it&#039;s already displaying the Windows logo, so this is definitely a (You) problem.",
+      "time": 1705375564,
+      "resto": 98455667
+    },
+    {
+      "no": 98476715,
+      "now": "01/15/24(Mon)22:32:23",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98476585\" class=\"quotelink\">&gt;&gt;98476585</a><br>No I&#039;m not, the 35 seconds is with the context restore?",
+      "time": 1705375943,
+      "resto": 98455667
+    },
+    {
+      "no": 98476783,
+      "now": "01/15/24(Mon)22:37:51",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98476715\" class=\"quotelink\">&gt;&gt;98476715</a><br><span class=\"quote\">&gt;I&#039;m not</span><br><span class=\"quote\">&gt;is with</span><br>I&#039;m getting mixed signals here",
+      "time": 1705376271,
+      "resto": 98455667
+    },
+    {
+      "no": 98476821,
+      "now": "01/15/24(Mon)22:40:05",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98476783\" class=\"quotelink\">&gt;&gt;98476783</a><br>The 35.1s, is that the boot time with context restore then?",
+      "time": 1705376405,
+      "resto": 98455667
+    },
+    {
+      "no": 98477871,
+      "now": "01/16/24(Tue)00:04:38",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98455813\" class=\"quotelink\">&gt;&gt;98455813</a><br>Not everyone wants to watch all of buildzoid&#039;s ram and amd videos in order to actually use their machine.",
+      "time": 1705381478,
+      "resto": 98455667
+    },
+    {
+      "no": 98477923,
+      "now": "01/16/24(Tue)00:09:08",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98455667\" class=\"quotelink\">&gt;&gt;98455667</a><br>my AM4 goes from power button to grub in 8 seconds, the monitor turns on around 7 seconds.<br><br>have you heard of fast boot?",
+      "time": 1705381748,
+      "resto": 98455667
+    },
+    {
+      "no": 98477958,
+      "now": "01/16/24(Tue)00:12:35",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98457995\" class=\"quotelink\">&gt;&gt;98457995</a><br>cope, intel with ddr5 here and i boot within 2 or 3 seconds",
+      "time": 1705381955,
+      "resto": 98455667
+    },
+    {
+      "no": 98478290,
+      "now": "01/16/24(Tue)00:41:48",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98477958\" class=\"quotelink\">&gt;&gt;98477958</a><br>why are you lying? everyone knows intel with ddr5 boots in half a nanosecond.<br>clearly something is wrong with your cpu/motherboard/ram.",
+      "time": 1705383708,
+      "resto": 98455667
+    },
+    {
+      "no": 98478482,
+      "now": "01/16/24(Tue)00:57:45",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98477923\" class=\"quotelink\">&gt;&gt;98477923</a><br><span class=\"quote\">&gt;my AM4 goes from power button to grub in 8 seconds, the monitor turns on around 7 seconds.</span><br>??? Why does it take so long, I get to desktop on windows with AM4 in 10 seconds with auto login configured. On linux its a little longer only because I don&#039;t allow it to autolog me in and I setup a DE animation when I login. Also the monitor is turned on right from the get-go. Something&#039;s slowing you down somewhere.",
+      "time": 1705384665,
+      "resto": 98455667
+    },
+    {
+      "no": 98479065,
+      "now": "01/16/24(Tue)01:52:22",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98477923\" class=\"quotelink\">&gt;&gt;98477923</a><br><span class=\"quote\">&gt;fast boot</span><br>Doesn&#039;t feel like it makes a difference on AM5.",
+      "time": 1705387942,
+      "resto": 98455667
+    },
+    {
+      "no": 98479369,
+      "now": "01/16/24(Tue)02:25:55",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98478482\" class=\"quotelink\">&gt;&gt;98478482</a><br>from the moment I press the button that&#039;s pretty decent",
+      "time": 1705389955,
+      "resto": 98455667
+    },
+    {
+      "no": 98479377,
+      "now": "01/16/24(Tue)02:27:05",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98455667\" class=\"quotelink\">&gt;&gt;98455667</a><br>Fuck you nigger",
+      "time": 1705390025,
+      "resto": 98455667
+    },
+    {
+      "no": 98479420,
+      "now": "01/16/24(Tue)02:31:49",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98479377\" class=\"quotelink\">&gt;&gt;98479377</a><br>meds, now!",
+      "time": 1705390309,
+      "resto": 98455667
+    },
+    {
+      "no": 98480395,
+      "now": "01/16/24(Tue)04:00:48",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98476182\" class=\"quotelink\">&gt;&gt;98476182</a><br>the flaw is that it was made by amd",
+      "time": 1705395648,
+      "resto": 98455667
+    },
+    {
+      "no": 98480938,
+      "now": "01/16/24(Tue)04:55:41",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98466834\" class=\"quotelink\">&gt;&gt;98466834</a><br>yes",
+      "time": 1705398941,
+      "resto": 98455667
+    },
+    {
+      "no": 98480968,
+      "now": "01/16/24(Tue)04:59:39",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98455667\" class=\"quotelink\">&gt;&gt;98455667</a><br><span class=\"quote\">&gt;Taking 30 seconds just to get to the POST screen is ridiculous</span><br>Kids these days complaining over nothing, why back in my days in takes at least 3 minutes from boot time to desktop and this is all from a fresh brand new install.",
+      "time": 1705399179,
+      "resto": 98455667
+    },
+    {
+      "no": 98481024,
+      "now": "01/16/24(Tue)05:06:21",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98465238\" class=\"quotelink\">&gt;&gt;98465238</a><br>sleeping only works properly with apple silicon.<br>if that&#039;s what you wanted out of your hardware, why did you build a windows machine?",
+      "time": 1705399581,
+      "resto": 98455667
+    },
+    {
+      "no": 98481051,
+      "now": "01/16/24(Tue)05:09:29",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98480968\" class=\"quotelink\">&gt;&gt;98480968</a><br>OK boomer.<br>It&#039;s a clear regression from DDR4.<br><a href=\"#p98477958\" class=\"quotelink\">&gt;&gt;98477958</a><br>You have MCR enabled. Same is available and works on AM5.",
+      "time": 1705399769,
+      "resto": 98455667
+    },
+    {
+      "no": 98481295,
+      "now": "01/16/24(Tue)05:40:29",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98455667\" class=\"quotelink\">&gt;&gt;98455667</a><br>mine 5950x takes 5 hous to post<br>what do",
+      "time": 1705401629,
+      "resto": 98455667
+    },
+    {
+      "no": 98481323,
+      "now": "01/16/24(Tue)05:42:49",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98481295\" class=\"quotelink\">&gt;&gt;98481295</a><br>just rma it under warranty... oh wait amd will deny that unlike intel",
+      "time": 1705401769,
+      "resto": 98455667
+    },
+    {
+      "no": 98481343,
+      "now": "01/16/24(Tue)05:44:27",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98455667\" class=\"quotelink\">&gt;&gt;98455667</a><br>Intel takes shortcuts when training memory while amd does it properly<br>Thats why Intel cpus can barely do 8000mhz while its almost a walk in the park on zen4 cpus",
+      "time": 1705401867,
+      "resto": 98455667
+    },
+    {
+      "no": 98481349,
+      "now": "01/16/24(Tue)05:44:59",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98481323\" class=\"quotelink\">&gt;&gt;98481323</a><br>i-im poooooooosting",
+      "filename": "122214opop",
+      "ext": ".jpg",
+      "w": 600,
+      "h": 800,
+      "tn_w": 93,
+      "tn_h": 125,
+      "tim": 1705401899151388,
+      "time": 1705401899,
+      "md5": "nx0FeQRBrlBHGVVgxTW/ow==",
+      "fsize": 34427,
+      "resto": 98455667
+    },
+    {
+      "no": 98481427,
+      "now": "01/16/24(Tue)05:55:03",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98455667\" class=\"quotelink\">&gt;&gt;98455667</a><br>Works on my machine.",
+      "time": 1705402503,
+      "resto": 98455667
+    },
+    {
+      "no": 98481495,
+      "now": "01/16/24(Tue)06:02:42",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98455667\" class=\"quotelink\">&gt;&gt;98455667</a><br>Nigga wtf did you do it takes me less than 15 if even that",
+      "time": 1705402962,
+      "resto": 98455667
+    },
+    {
+      "no": 98481865,
+      "now": "01/16/24(Tue)06:43:14",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98476231\" class=\"quotelink\">&gt;&gt;98476231</a><br>i boot in 15 secounds to windows login . should i stay with am4 ????",
+      "time": 1705405394,
+      "resto": 98455667
+    },
+    {
+      "no": 98481901,
+      "now": "01/16/24(Tue)06:46:32",
+      "name": "Anonymous",
+      "com": "<a href=\"#p98481865\" class=\"quotelink\">&gt;&gt;98481865</a><br>wait for am6",
+      "time": 1705405592,
+      "resto": 98455667
+    }
+  ]
+}
