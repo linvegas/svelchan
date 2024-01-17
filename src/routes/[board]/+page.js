@@ -4,6 +4,8 @@ import catalog from "$lib/catalog.json"
  * @typedef {Object} Thread
  * @property {string} sub
  * @property {string} com
+ * @property {number} tn_w
+ * @property {number} tn_h
  */
 
 /**
