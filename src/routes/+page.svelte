@@ -3,8 +3,8 @@
   export let data;
 </script>
 
-<h1>Welcome to Svelchan</h1>
-<main class="container">
+<h2>Welcome to Svelchan</h2>
+<section class="container">
   <h3>List of boards:</h3>
   <ul>
     {#each data.boards as board}
@@ -14,13 +14,14 @@
       </li>
     {/each}
   </ul>
-</main>
+</section>
 
 <style>
-  h1 {
-    text-align: center;
+  h2 {
+    padding: 0.5rem 1rem;
+    background: darkslategrey;
   }
-  main {
+  section {
     padding-block: 2rem;
   }
   h3 {

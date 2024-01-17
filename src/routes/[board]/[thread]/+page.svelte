@@ -3,9 +3,9 @@
   export let data;
 </script>
 
-<h1>Thread Page</h1>
+<h2>Thread Page</h2>
 
-<main class="container">
+<section class="container">
   <ul>
     {#each data.thread as thread}
       <li>
@@ -15,13 +15,14 @@
       </li>
     {/each}
   </ul>
-</main>
+</section>
 
 <style>
-  h1 {
-    text-align: center;
+  h2 {
+    padding: 0.5rem 1rem;
+    background: darkslategrey;
   }
-  main {
+  section {
     padding-block: 2rem;
   }
   li {
