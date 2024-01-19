@@ -7,19 +7,23 @@
 
 <section class="container">
   <ul>
-    {#each data.threads as thread}
-      <li>
-        <img
-          alt="Thumbnail"
-          src={`https://placehold.co/${thread.tn_w}x${thread.tn_h}`}
-          width={thread.tn_w}
-          height={thread.tn_h}
-          loading="lazy"
-        />
-        <h4>{thread.sub ? thread.sub : ""}</h4>
-        <p>{@html thread.com}</p>
-      </li>
-    {/each}
+    {#await data.streamed.threads}
+      <p>Loading...</p>
+      {:then threads}
+      {#each threads as thread}
+        <li>
+          <img
+            alt="Thumbnail"
+            src={`https://placehold.co/${thread.tn_w}x${thread.tn_h}`}
+            width={thread.tn_w}
+            height={thread.tn_h}
+            loading="lazy"
+          />
+          <h4>{thread.sub ? thread.sub : ""}</h4>
+          <p>{@html thread.com}</p>
+        </li>
+      {/each}
+    {/await}
   </ul>
 </section>
 
