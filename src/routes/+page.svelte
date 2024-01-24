@@ -1,10 +1,11 @@
 <script>
+  import Header from "$lib/components/Header.svelte"
   /** @type {import('./$types').PageData} */
   export let data;
 </script>
 
-<h2>Welcome to Svelchan</h2>
-<section class="container">
+<Header title="Welcome to Svelchan" />
+<section>
   <h3>List of boards:</h3>
   <ul>
     {#each data.boards as board}
@@ -17,12 +18,9 @@
 </section>
 
 <style>
-  h2 {
-    padding: 0.5rem 1rem;
-    background: darkslategrey;
-  }
   section {
-    padding-block: 2rem;
+    padding: 2rem 10vw;
+    overflow: scroll;
   }
   h3 {
     text-align: center;

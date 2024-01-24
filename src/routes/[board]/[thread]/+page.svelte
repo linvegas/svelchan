@@ -1,15 +1,17 @@
 <script>
+  import Header from "$lib/components/Header.svelte"
   /** @type {import('./$types').PageData} */
   export let data;
 </script>
 
-<h2>Thread Page</h2>
-
-<section class="container">
+<Header title="Thread Page" />
+<section>
   <ul>
     {#each data.thread as thread}
       <li>
-        <h4>{thread.sub ? thread.sub : ""}</h4>
+        {#if thread.sub}
+          <h4>{@html thread.sub}</h4>
+        {/if}
         <h4>{thread.name}</h4>
         <p>{@html thread.com}</p>
       </li>
@@ -18,15 +20,12 @@
 </section>
 
 <style>
-  h2 {
-    padding: 0.5rem 1rem;
-    background: darkslategrey;
-  }
   section {
-    padding-block: 2rem;
+    padding: 2rem 10vw;
+    overflow: scroll;
   }
   li {
-    background: rebeccapurple;
+    background: darkorchid;
     padding: 1rem;
     border-radius: 0.5rem;
     margin-bottom: 1rem;
