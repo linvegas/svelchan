@@ -47,3 +47,7 @@ code, kbd, samp, pre {
   font-size: 1em;
 }
 
+a {
+  text-decoration: none;
+  color: unset;
+}

@@ -4,7 +4,7 @@
   export let data;
 </script>
 
-<Header title="Catalog Page" />
+<Header title={`Catalog -> ${data.board}`} />
 <section>
   <ul>
     {#await data.streamed.threads}
@@ -12,13 +12,15 @@
       {:then threads}
       {#each threads as thread}
         <li>
-          <img
-            alt="There was supposed to be an img here"
-            src={`https://placehold.co/${thread.tn_w}x${thread.tn_h}`}
-            width={thread.tn_w}
-            height={thread.tn_h}
-            loading="lazy"
-          />
+          <a href={`${data.board}/${thread.no}`}>
+            <img
+              alt="There was supposed to be an img here"
+              src={`https://placehold.co/${thread.tn_w}x${thread.tn_h}`}
+              width={thread.tn_w}
+              height={thread.tn_h}
+              loading="lazy"
+            />
+          </a>
           {#if thread.sub}
             <h4>{@html thread.sub}</h4>
           {/if}
@@ -48,17 +50,17 @@
     box-shadow: 0 0 0.5rem hsl(0 0% 0% / 35%);
     border-radius: 0.5rem;
   }
-  li > img {
+  li > a > img {
     aspect-ratio: 3/2;
     object-fit: cover;
     width: 100%;
     border-radius: 0.5rem 0.5rem 0 0;
   }
-  li > :not(img) {
+  li > :not(img, a) {
     margin-inline: 1rem;
     text-wrap: pretty;
   }
-  li > :not(img):first-child {
+  li > :not(img, a):first-child {
     margin-top: 1rem;
   }
   li > :last-child {

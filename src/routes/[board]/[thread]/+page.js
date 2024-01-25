@@ -9,10 +9,12 @@ import post from "$lib/thread.json"
  */
 
 /** @type {import('./$types').PageLoad} */
-export async function load({}) {
+export async function load({ params }) {
   /** @type {Post[]} */
   let thread = post.posts
   return {
+    board: params.board,
+    threadNumber: params.thread,
     thread
   }
 }

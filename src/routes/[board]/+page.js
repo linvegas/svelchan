@@ -6,6 +6,7 @@ import catalog from "$lib/catalog.json"
  * @property {string} com
  * @property {number} tn_w
  * @property {number} tn_h
+ * @property {number} no
  */
 
 /**
@@ -15,7 +16,7 @@ import catalog from "$lib/catalog.json"
  */
 
 /** @type {import('./$types').PageLoad} */
-export async function load({}) {
+export async function load({ params }) {
   /** @type {Promise<Thread[]>} */
   const threadsPromise = new Promise((resolve) => {
     /** @type {Thread[]} */
@@ -28,6 +29,7 @@ export async function load({}) {
     resolve(threads)
   })
   return {
+    board: params.board,
     streamed: {
       threads: threadsPromise
     }

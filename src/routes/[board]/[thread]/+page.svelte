@@ -4,7 +4,7 @@
   export let data;
 </script>
 
-<Header title="Thread Page" />
+<Header title={`${data.board} -> ${data.threadNumber}`} />
 <section>
   <ul>
     {#each data.thread as thread}

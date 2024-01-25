@@ -36,7 +36,16 @@
   }
   aside {
     background: darkcyan;
-    padding: 0.5rem;
+    padding: 1rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    & label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
   }
   main {
     display: grid;
