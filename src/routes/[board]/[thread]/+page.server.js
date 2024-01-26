@@ -11,18 +11,19 @@
  * @property {string} no
  * @property {string} name
  * @property {string} com
+ * @property {string} now
  */
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ params }) {
   const res = await fetch(`https://a.4cdn.org/${params.board}/thread/${params.thread}.json`);
   /** @type {Post} */
-  const post = await res.json();
+  const thread = await res.json();
   /** @type {Reply[]} */
-  let thread = post.posts
+  let posts = thread.posts
   return {
     board: params.board,
     threadNumber: params.thread,
-    thread
+    posts
   }
 }
