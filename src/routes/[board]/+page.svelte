@@ -1,13 +1,15 @@
 <script>
   import Header from "$lib/components/Header.svelte"
-  /** @type {import('./$types').PageData} */
+  /** @type {import('./$types').PageServerData} */
   export let data;
+  // src={`https://placehold.co/${thread.tn_w}x${thread.tn_h}`}
+  // src={`https://i.4cdn.org/${data.board}/${thread.tim}s.jpg`}
 </script>
 
 <Header title={`Catalog -> ${data.board}`} />
 <section>
   <ul>
-    {#await data.streamed.threads}
+    {#await data.lazy.threads}
       <p>Loading...</p>
       {:then threads}
       {#each threads as thread}

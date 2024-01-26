@@ -1,4 +1,4 @@
-import catalog from "$lib/catalog.json"
+// import catalog from "$lib/catalog.json"
 
 /**
  * @typedef {Object} Thread
@@ -7,16 +7,19 @@ import catalog from "$lib/catalog.json"
  * @property {number} tn_w
  * @property {number} tn_h
  * @property {number} no
+ * @property {number} tim
  */
 
 /**
- * @typedef {Object} Catalog
- * @property {number} page
+ * @typedef {Object[]} Catalog
  * @property {Thread[]} threads
  */
 
-/** @type {import('./$types').PageLoad} */
+/** @type {import('./$types').PageServerLoad} */
 export async function load({ params }) {
+  const res = await fetch(`https://a.4cdn.org/${params.board}/catalog.json`);
+  /** @type {Catalog} */
+  const catalog = await res.json();
   /** @type {Promise<Thread[]>} */
   const threadsPromise = new Promise((resolve) => {
     /** @type {Thread[]} */
@@ -30,7 +33,7 @@ export async function load({ params }) {
   })
   return {
     board: params.board,
-    streamed: {
+    lazy: {
       threads: threadsPromise
     }
   }
