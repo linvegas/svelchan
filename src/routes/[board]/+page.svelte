@@ -35,7 +35,7 @@
 
 <style>
   section {
-    padding: 2rem 10vw;
+    padding: 2rem 2rem;
     overflow: scroll;
   }
   ul {
@@ -44,8 +44,8 @@
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
   }
   li {
-    height: 400px;
-    background: darkorchid;
+    height: 420px;
+    background: darkslateblue;
     display: flex;
     flex-direction: column;
     gap: 1rem;

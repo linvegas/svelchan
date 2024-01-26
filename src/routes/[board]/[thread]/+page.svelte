@@ -8,18 +8,21 @@
 <section>
   <ul>
     {#each data.posts as reply}
-      <li id={`p${reply.no}`}>
-        <header>
-          <h4>{reply.name}</h4>
-          <span>{reply.now}</span>
-        </header>
-        {#if reply.sub}
-          <h4>{@html reply.sub}</h4>
-        {/if}
-        <p>{@html reply.com}</p>
-      </li>
+      {#if reply.com}
+        <li id={`p${reply.no}`}>
+          <header>
+            <h4>{reply.name}</h4>
+            <span>{reply.now}</span>
+          </header>
+          {#if reply.sub}
+            <h4>{@html reply.sub}</h4>
+          {/if}
+          <p>{@html reply.com}</p>
+        </li>
+      {/if}
     {/each}
   </ul>
+  <hr>
 </section>
 
 <style>
@@ -54,6 +57,20 @@
       &:hover {
         filter: brightness(1.25);
       }
+    }
+  }
+  hr {
+    margin-top: 2rem;
+    border: none;
+    border-top: 5px double #333;
+    text-align: center;
+    overflow: visible;
+    &::after {
+      content: "EOF";
+      position: relative;
+      padding-inline: 1rem;
+      background: #1c1b22;
+      top: -0.85rem;
     }
   }
 </style>
