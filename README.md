@@ -9,6 +9,15 @@ website called [4chan](https://4chan.org).
 present on other mobile software like [KurobaEx](https://github.com/K1rakishou/Kuroba-Experimental).
 So, why not make a new bloated version of it?
 
+## Reference
+
+Things i used to help me:
+
+- [SmolCSS](https://smolcss.dev)
+- [Feather Icons](https://feathericons.com)
+- [SvelteKit Docs](https://kit.svelte.dev/docs/introduction)
+- [KurobaEx](https://github.com/K1rakishou/Kuroba-Experimental)
+
 ## Development
 
 Le basic npm stuff
