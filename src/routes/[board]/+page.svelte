@@ -4,6 +4,15 @@
   export let data;
   // src={`https://placehold.co/${thread.tn_w}x${thread.tn_h}`}
   // src={`https://i.4cdn.org/${data.board}/${thread.tim}s.jpg`}
+  function getImage(node, url) {
+    const update = async () => {
+      const res = await self.fetch(`/api/getimage?query=${url}`);
+      const blob = await res.blob();
+      const imgUrl = URL.createObjectURL(blob);
+      node.src = imgUrl;
+    }
+    update();
+  }
 </script>
 
 <Header title={`Catalog -> ${data.board}`} />
@@ -17,10 +26,11 @@
           <a href={`${data.board}/${thread.no}`}>
             <img
               alt="There was supposed to be an img here"
-              src={`https://placehold.co/${thread.tn_w}x${thread.tn_h}`}
+              src={`https://placehold.co/250x250`}
               width={thread.tn_w}
               height={thread.tn_h}
               loading="lazy"
+              use:getImage={`https://i.4cdn.org/${data.board}/${thread.tim}s.jpg`}
             />
           </a>
           {#if thread.sub}
