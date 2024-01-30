@@ -4,6 +4,10 @@
   export let data;
   // src={`https://placehold.co/${thread.tn_w}x${thread.tn_h}`}
   // src={`https://i.4cdn.org/${data.board}/${thread.tim}s.jpg`}
+  /**
+    * @param {HTMLImageElement} node
+    * @param {string} url
+  */
   function getImage(node, url) {
     const update = async () => {
       const res = await self.fetch(`/api/getimage?query=${url}`);
