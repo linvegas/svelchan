@@ -2,6 +2,8 @@
   import Header from "$lib/components/Header.svelte"
   /** @type {import('./$types').PageServerData} */
   export let data;
+  import imageIcon from "$lib/assets/image.svg"
+  import messageIcon from "$lib/assets/message-square.svg"
   // src={`https://placehold.co/${thread.tn_w}x${thread.tn_h}`}
   // src={`https://i.4cdn.org/${data.board}/${thread.tim}s.jpg`}
   /**
@@ -40,7 +42,19 @@
           {#if thread.sub}
             <h4>{@html thread.sub}</h4>
           {/if}
-          <p>{@html thread.com}</p>
+          {#if thread.com}
+            <p>{@html thread.com}</p>
+          {/if}
+          <div class="replies">
+            <span>
+              <img class="svg" src={messageIcon} alt="R:" />
+              {thread.replies}
+            </span>
+            <span>
+              <img class="svg" src={imageIcon} alt="I:" />
+              {thread.images}
+            </span>
+          </div>
         </li>
       {/each}
     {/await}
@@ -58,7 +72,7 @@
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
   }
   li {
-    height: 420px;
+    max-height: 410px;
     background: darkslateblue;
     display: flex;
     flex-direction: column;
@@ -72,16 +86,40 @@
     width: 100%;
     border-radius: 0.5rem 0.5rem 0 0;
   }
-  li > :not(img, a) {
+  li > div.replies {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: auto;
+    background: transparent;
+    & span {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 0.25rem;
+      & > img.svg {
+        filter: invert(90%);
+        width: 1rem;
+      }
+      &:first-child {
+        border-bottom-left-radius: 0.5rem;
+        background: darkmagenta;
+      }
+      &:last-child {
+        background: darkviolet;
+        border-bottom-right-radius: 0.5rem;
+      }
+    }
+  }
+  li > :not(img, a, div.replies) {
     margin-inline: 1rem;
     text-wrap: pretty;
   }
   li > :not(img, a):first-child {
     margin-top: 1rem;
   }
-  li > :last-child {
+  /*li > :last-child {
     margin-bottom: 1rem;
-  }
+  }*/
   li > p {
     display: -webkit-box;
     -webkit-box-orient: vertical;

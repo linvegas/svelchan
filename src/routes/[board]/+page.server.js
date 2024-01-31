@@ -8,6 +8,8 @@
  * @property {number} tn_h
  * @property {number} no
  * @property {number} tim
+ * @property {number} replies
+ * @property {number} images
  */
 
 /**
