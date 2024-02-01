@@ -2,6 +2,15 @@
   import Header from "$lib/components/Header.svelte"
   /** @type {import('./$types').PageServerData} */
   export let data;
+  function getImage(node, url) {
+    const update = async () => {
+      const res = await self.fetch(`/api/getimage?query=${url}`);
+      const blob = await res.blob();
+      const imgUrl = URL.createObjectURL(blob);
+      node.src = imgUrl;
+    }
+    update();
+  }
 </script>
 
 <Header title={`${data.board} -> ${data.threadNumber}`} />
@@ -14,21 +23,39 @@
             <h4>{reply.name}</h4>
             <span>{reply.now}</span>
           </header>
-          {#if reply.sub}
-            <h4>{@html reply.sub}</h4>
-          {/if}
-          <p>{@html reply.com}</p>
+          <article>
+            <div>
+              {#if reply.sub}
+                <h4>{@html reply.sub}</h4>
+              {/if}
+              <p>{@html reply.com}</p>
+            </div>
+            {#if reply.tim}
+              <img
+                alt="Thumbnail"
+                src={`https://placehold.co/${reply.tn_w}x${reply.tn_h}`}
+                width={reply.tn_w}
+                height={reply.tn_h}
+                loading="lazy"
+                use:getImage={`https://i.4cdn.org/${data.board}/${reply.tim}s.jpg`}
+              />
+            {/if}
+          </article>
         </li>
       {/if}
     {/each}
+    <hr>
   </ul>
-  <hr>
 </section>
 
 <style>
   section {
-    padding: 2rem 10vw;
     overflow: scroll;
+    padding-block: 2rem;
+  }
+  ul {
+    margin-inline: auto;
+    width: min(960px, 100% - 4rem);
   }
   li {
     border: 2px solid dimgrey;
@@ -37,7 +64,7 @@
   }
   li > header {
     background-color: rgba(255, 255, 255, 0.1);
-    padding: 0.15rem 0.5rem;
+    padding: 0.15rem 0.75rem;
     display: flex;
     gap: 0.5rem;
     align-items: center;
@@ -45,7 +72,38 @@
       color: mediumseagreen;
     }
   }
-  li > p, li > h4 {
+  li > article {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 4rem;
+    padding: 0.75rem;
+    & h4 {
+      margin-bottom: 1rem;
+    }
+    & p {
+      & .quote {
+        color: lightgreen;
+      }
+      & .quotelink {
+        color: deepskyblue;
+        &:hover {
+          filter: brightness(1.25);
+        }
+      }
+      & .prettyprint {
+        margin-top: 1rem;
+        background-color: #222;
+        color: lawngreen;
+        padding-block: 0.25rem;
+        border: 2px solid darkslategray;
+        border-radius: 0.25rem;
+        overflow-x: auto;
+        cursor: text;
+      }
+    }
+  }
+  /* li > p, li > h4 {
     padding: 0.5rem;
   }
   li > p {
@@ -58,7 +116,18 @@
         filter: brightness(1.25);
       }
     }
-  }
+    & .prettyprint {
+      margin-top: 1rem;
+      background-color: #222;
+      color: lawngreen;
+      padding-block: 0.25rem;
+      border: 2px solid darkslategray;
+      border-radius: 0.25rem;
+      overflow-x: auto;
+      cursor: text;
+    }
+  } */
+
   hr {
     margin-top: 2rem;
     border: none;

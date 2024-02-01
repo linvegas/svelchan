@@ -19,7 +19,7 @@
 
 <style>
   section {
-    padding: 2rem 10vw;
+    padding: 2rem;
     overflow: scroll;
   }
   h3 {

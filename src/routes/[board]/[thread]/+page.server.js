@@ -12,6 +12,9 @@
  * @property {string} name
  * @property {string} com
  * @property {string} now
+ * @property {number} tn_w
+ * @property {number} tn_h
+ * @property {number} tim
  */
 
 /** @type {import('./$types').PageServerLoad} */
