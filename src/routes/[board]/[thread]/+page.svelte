@@ -2,6 +2,12 @@
   import Header from "$lib/components/Header.svelte"
   /** @type {import('./$types').PageServerData} */
   export let data;
+  /** @type {HTMLDialogElement} */
+  let dialogEl;
+  /**
+    * @param {HTMLImageElement} node
+    * @param {string} url
+  */
   function getImage(node, url) {
     const update = async () => {
       const res = await self.fetch(`/api/getimage?query=${url}`);
@@ -31,14 +37,20 @@
               <p>{@html reply.com}</p>
             </div>
             {#if reply.tim}
-              <img
-                alt="Thumbnail"
-                src={`https://placehold.co/${reply.tn_w}x${reply.tn_h}`}
-                width={reply.tn_w}
-                height={reply.tn_h}
-                loading="lazy"
-                use:getImage={`https://i.4cdn.org/${data.board}/${reply.tim}s.jpg`}
-              />
+              <button
+                class="btn-thumb"
+                type="button"
+                on:click={() => dialogEl.showModal()}
+              >
+                <img
+                  alt="Thumbnail"
+                  src={`https://placehold.co/${reply.tn_w}x${reply.tn_h}`}
+                  width={reply.tn_w}
+                  height={reply.tn_h}
+                  loading="lazy"
+                  use:getImage={`https://i.4cdn.org/${data.board}/${reply.tim}s.jpg`}
+                />
+              </button>
             {/if}
           </article>
         </li>
@@ -47,6 +59,10 @@
     <hr>
   </ul>
 </section>
+<dialog bind:this={dialogEl}>
+  <h2>Image preview</h2>
+  <button on:click={() => dialogEl.close()}>close</button>
+</dialog>
 
 <style>
   section {
@@ -78,6 +94,10 @@
     align-items: flex-start;
     gap: 4rem;
     padding: 0.75rem;
+    & button.btn-thumb {
+      all: unset;
+      cursor: pointer;
+    }
     & h4 {
       margin-bottom: 1rem;
     }
@@ -92,10 +112,11 @@
         }
       }
       & .prettyprint {
+        inline-size: 650px;
         margin-top: 1rem;
         background-color: #222;
         color: lawngreen;
-        padding-block: 0.25rem;
+        padding: 0.25rem;
         border: 2px solid darkslategray;
         border-radius: 0.25rem;
         overflow-x: auto;
@@ -103,31 +124,6 @@
       }
     }
   }
-  /* li > p, li > h4 {
-    padding: 0.5rem;
-  }
-  li > p {
-    & .quote {
-      color: lightcoral;
-    }
-    & .quotelink {
-      color: deepskyblue;
-      &:hover {
-        filter: brightness(1.25);
-      }
-    }
-    & .prettyprint {
-      margin-top: 1rem;
-      background-color: #222;
-      color: lawngreen;
-      padding-block: 0.25rem;
-      border: 2px solid darkslategray;
-      border-radius: 0.25rem;
-      overflow-x: auto;
-      cursor: text;
-    }
-  } */
-
   hr {
     margin-top: 2rem;
     border: none;
@@ -141,5 +137,11 @@
       background: #1c1b22;
       top: -0.85rem;
     }
+  }
+  dialog {
+    margin: auto;
+  }
+  dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
   }
 </style>

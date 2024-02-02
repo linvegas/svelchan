@@ -12,8 +12,11 @@
  * @property {string} name
  * @property {string} com
  * @property {string} now
+ * @property {string} ext
  * @property {number} tn_w
  * @property {number} tn_h
+ * @property {number} w
+ * @property {number} h
  * @property {number} tim
  */
 
