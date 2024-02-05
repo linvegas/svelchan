@@ -1,9 +1,12 @@
 <script>
   import Header from "$lib/components/Header.svelte"
+
   /** @type {import('./$types').PageServerData} */
   export let data;
+
   /** @type {HTMLDialogElement} */
   let dialogEl;
+
   /**
     * @param {HTMLImageElement} node
     * @param {string} url
@@ -16,6 +19,33 @@
       node.src = imgUrl;
     }
     update();
+  }
+
+  /** @type {{id: number, ext: string, width: number, height: number}} curPreview */
+  let curPreview;
+
+  let showDialog = false;
+
+  /**
+  * @param {number} imgId
+  * @param {string} imgExt
+  * @param {number} imgWidth
+  * @param {number} imgHeight
+  */
+  function handleImagePreview(imgId, imgExt, imgWidth, imgHeight) {
+    curPreview = {
+      id: imgId,
+      ext: imgExt,
+      width: imgWidth,
+      height: imgHeight,
+    }
+    showDialog = true;
+    dialogEl.showModal()
+  }
+
+  function handleCloseDialog() {
+    dialogEl.close();
+    showDialog = false;
   }
 </script>
 
@@ -40,7 +70,7 @@
               <button
                 class="btn-thumb"
                 type="button"
-                on:click={() => dialogEl.showModal()}
+                on:click={() => handleImagePreview(reply.tim, reply.ext, reply.w, reply.h)}
               >
                 <img
                   alt="Thumbnail"
@@ -61,7 +91,16 @@
 </section>
 <dialog bind:this={dialogEl}>
   <h2>Image preview</h2>
-  <button on:click={() => dialogEl.close()}>close</button>
+  <button on:click={handleCloseDialog}>close</button>
+  {#if showDialog}
+    <img
+      alt="Preview"
+      src={`https://placehold.co/${curPreview.width}x${curPreview.height}`}
+      width={curPreview.width}
+      height={curPreview.height}
+      use:getImage={`https://i.4cdn.org/${data.board}/${curPreview.id}${curPreview.ext}`}
+    />
+  {/if}
 </dialog>
 
 <style>
@@ -140,6 +179,10 @@
   }
   dialog {
     margin: auto;
+    & img {
+      max-height: 80vh;
+      object-fit: contain;
+    }
   }
   dialog::backdrop {
     background-color: rgba(0, 0, 0, 0.5);
