@@ -14,7 +14,18 @@
   /** @type {boolean} */
   let sidebarViewValue;
   sidebarView.subscribe(value => sidebarViewValue = value);
+
+  /** @param {KeyboardEvent} event */
+  function onKeyPressed(event) {
+    switch (event.key) {
+      case 'b':
+        sidebarView.update(view => !view);
+        break;
+    }
+  }
 </script>
+
+<svelte:window on:keypress={onKeyPressed} />
 
 <svelte:head>
   <title>Svelchan</title>
