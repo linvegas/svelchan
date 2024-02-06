@@ -54,19 +54,23 @@
 <section>
   <ul>
     {#each data.posts as reply}
-      {#if reply.com}
+      <!-- {#if reply.com} -->
         <li id={`p${reply.no}`}>
           <header>
             <h4>{reply.name}</h4>
             <span>{reply.now}</span>
           </header>
           <article>
+          {#if reply.sub || reply.com}
             <div>
               {#if reply.sub}
                 <h4>{@html reply.sub}</h4>
               {/if}
-              <p>{@html reply.com}</p>
+              {#if reply.com}
+                <p>{@html reply.com}</p>
+              {/if}
             </div>
+          {/if}
             {#if reply.tim}
               <button
                 class="btn-thumb"
@@ -85,26 +89,40 @@
             {/if}
           </article>
         </li>
-      {/if}
+      <!-- {/if} -->
     {/each}
     <hr>
   </ul>
 </section>
 <dialog bind:this={dialogEl}>
   <header>
-    <h2>Image preview</h2>
+    <h3>Image preview</h3>
     <button title="Close" on:click={handleCloseDialog}>
       <img class="svg" src={closeIcon} alt="X" />
     </button>
   </header>
   {#if showDialog}
-    <img
-      alt="Preview"
-      src={`https://placehold.co/${curPreview.width}x${curPreview.height}`}
-      width={curPreview.width}
-      height={curPreview.height}
-      use:getImage={`https://i.4cdn.org/${data.board}/${curPreview.id}${curPreview.ext}`}
-    />
+    {#if curPreview.ext !== ".webm"}
+      <img
+        alt="Preview"
+        class="preview"
+        src={`https://placehold.co/${curPreview.width}x${curPreview.height}`}
+        width={curPreview.width}
+        height={curPreview.height}
+        use:getImage={`https://i.4cdn.org/${data.board}/${curPreview.id}${curPreview.ext}`}
+      />
+    {:else}
+      <video
+        controls muted
+        class="preview"
+        src={`https://placehold.co/${curPreview.width}x${curPreview.height}`}
+        width={curPreview.width}
+        height={curPreview.height}
+        use:getImage={`https://i.4cdn.org/${data.board}/${curPreview.id}${curPreview.ext}`}
+      >
+        <track kind="captions"/>
+      </video>
+    {/if}
   {/if}
 </dialog>
 
@@ -156,8 +174,10 @@
         }
       }
       & .prettyprint {
-        inline-size: 650px;
-        margin-top: 1rem;
+        font-size: 0.8rem;
+        display: inline-block;
+        max-width: 600px;
+        margin-bottom: 1rem;
         background-color: #222;
         color: lawngreen;
         padding: 0.25rem;
@@ -207,13 +227,13 @@
         }
       }
     }
-    & img {
+    & img.preview, & video.preview {
       /*aspect-ratio: auto;*/
       max-height: 80vh;
       width: 100%;
     }
   }
   dialog::backdrop {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.8);
   }
 </style>

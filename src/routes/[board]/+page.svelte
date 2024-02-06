@@ -72,7 +72,7 @@
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
   }
   li {
-    max-height: 410px;
+    height: 410px;
     background: darkslateblue;
     display: flex;
     flex-direction: column;
