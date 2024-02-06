@@ -1,5 +1,6 @@
 <script>
   import Header from "$lib/components/Header.svelte"
+  import closeIcon from "$lib/assets/x.svg"
 
   /** @type {import('./$types').PageServerData} */
   export let data;
@@ -90,8 +91,12 @@
   </ul>
 </section>
 <dialog bind:this={dialogEl}>
-  <h2>Image preview</h2>
-  <button on:click={handleCloseDialog}>close</button>
+  <header>
+    <h2>Image preview</h2>
+    <button title="Close" on:click={handleCloseDialog}>
+      <img class="svg" src={closeIcon} alt="X" />
+    </button>
+  </header>
   {#if showDialog}
     <img
       alt="Preview"
@@ -179,12 +184,36 @@
   }
   dialog {
     margin: auto;
+    background: transparent;
+    /* padding: 0.75rem; */
+    border-width: 0;
+    border-radius: 0.5rem;
+    & > header {
+      padding-bottom: 1rem;
+      display: flex;
+      justify-content: space-between;
+      & > button {
+        border-width: 0;
+        border-radius: 0.25rem;
+        cursor: pointer;
+        background: transparent;
+        &:hover {
+          filter: brightness(1.25);
+          background: rgba(0, 0, 0, 0.25);
+        }
+        & img.svg {
+          filter: invert(90%);
+          width: 1.5rem;
+        }
+      }
+    }
     & img {
+      /*aspect-ratio: auto;*/
       max-height: 80vh;
-      object-fit: contain;
+      width: 100%;
     }
   }
   dialog::backdrop {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
   }
 </style>
