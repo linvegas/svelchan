@@ -1,11 +1,9 @@
 <script>
   import Header from "$lib/components/Header.svelte"
-  /** @type {import('./$types').PageServerData} */
-  export let data;
   import imageIcon from "$lib/assets/image.svg"
   import messageIcon from "$lib/assets/message-square.svg"
-  // src={`https://placehold.co/${thread.tn_w}x${thread.tn_h}`}
-  // src={`https://i.4cdn.org/${data.board}/${thread.tim}s.jpg`}
+  /** @type {import('./$types').PageServerData} */
+  export let data;
   /**
     * @param {HTMLImageElement} node
     * @param {string} url
@@ -21,7 +19,11 @@
   }
 </script>
 
-<Header title={`Catalog -> ${data.board}`} />
+<Header>
+  <h2 slot="context">
+    /{data.board}/ - {data.title}
+  </h2>
+</Header>
 <section>
   <ul>
     {#await data.lazy.threads}
@@ -31,7 +33,7 @@
         <li>
           <a href={`${data.board}/${thread.no}`}>
             <img
-              alt="There was supposed to be an img here"
+              alt="Thumbnail"
               src={`https://placehold.co/250x250`}
               width={thread.tn_w}
               height={thread.tn_h}

@@ -1,7 +1,7 @@
 <script>
   import { sidebarView } from "$lib/store.js"
   /** @type {string} */
-  export let title = "Header";
+  // export let title = "Header";
   import menuIcon from "$lib/assets/menu.svg"
   function handleSideBar() {
     sidebarView.update(view => !view);
@@ -12,7 +12,9 @@
   <button title="Change sidebar" on:click={handleSideBar}>
     <img class="svg" alt="Menu" src={menuIcon} />
   </button>
-  <h2>{title}</h2>
+  <slot name="context">
+    <h2>Context</h2>
+  </slot>
 </header>
 
 <style>

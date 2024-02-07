@@ -50,7 +50,11 @@
   }
 </script>
 
-<Header title={`${data.board} -> ${data.threadNumber}`} />
+<Header>
+  <h2 slot="context">
+    <a title="Go back" class="back" href={`/${data.board}`}>/{data.board}/</a> - {data.threadNumber}
+  </h2>
+</Header>
 <section>
   <ul>
     {#each data.posts as reply}
@@ -127,6 +131,12 @@
 </dialog>
 
 <style>
+  h2 a.back {
+    color: lightblue;
+    &:hover {
+      filter: brightness(1.25);
+    }
+  }
   section {
     overflow: scroll;
     padding-block: 2rem;

@@ -17,6 +17,15 @@
  * @property {Thread[]} threads
  */
 
+/** @param {string} board */
+function getBoardTitle(board) {
+  const title = fetch("https://a.4cdn.org/boards.json")
+    .then(res => res.json())
+    .then(data => data.boards.filter(b => b.board === board))
+    .then(board => board.map(b =>  b.title ))
+  return title
+}
+
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ params }) {
   const res = await fetch(`https://a.4cdn.org/${params.board}/catalog.json`);
@@ -33,8 +42,10 @@ export async function load({ params }) {
     }
     resolve(threads)
   })
+  const title = await getBoardTitle(params.board)
   return {
     board: params.board,
+    title,
     lazy: {
       threads: threadsPromise
     }

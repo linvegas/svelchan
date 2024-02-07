@@ -4,7 +4,9 @@
   export let data;
 </script>
 
-<Header title="Welcome to Svelchan" />
+<Header>
+  <h2 slot="context">Welcome</h2>
+</Header>
 <section>
   <h3>List of boards:</h3>
   <ul>
