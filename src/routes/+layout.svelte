@@ -64,15 +64,22 @@
   }
   aside {
     background: darkcyan;
-    padding: 1rem 0.5rem;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
     & label {
+      width: 100%;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: start;
+      & select {
+        width: 100%;
+        border-width: 0;
+        border-radius: 0.25rem;
+        padding: 0.25rem 0.5rem;
+      }
     }
   }
   main {
