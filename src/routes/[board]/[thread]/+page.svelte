@@ -48,11 +48,39 @@
     dialogEl.close();
     showDialog = false;
   }
+
+  let currentTime = Date.now()
+
+  /** @param {number} timestamp */
+  function formatDate(timestamp) {
+    const now = Math.floor(currentTime / 1000);
+    const diff = now - timestamp;
+
+    const hoursPassed = Math.floor(diff / 3600);
+    const minutesPassed = Math.floor(diff / 60) % 60;
+    const secondsPassed = diff % 60;
+
+    if (hoursPassed > 0) {
+      return `${hoursPassed} ${hoursPassed === 1 ? "hour" : "hours"} ago`
+    }
+
+    if (minutesPassed > 0) {
+      return `${minutesPassed} ${minutesPassed === 1 ? "minute" : "minutes"} ago`
+    }
+
+    if (secondsPassed > 0) {
+      return "just now"
+    }
+
+    return diff
+  }
 </script>
 
 <Header>
   <h2 slot="context">
-    <a title="Go back" class="back" href={`/${data.board}`}>/{data.board}/</a> - {data.threadNumber}
+    <a title="Go back" class="back" href={`/${data.board}`}>
+      &sol;{data.board}&sol;
+    </a> &gt; {data.threadNumber}
   </h2>
 </Header>
 <section>
@@ -61,8 +89,9 @@
       <!-- {#if reply.com} -->
         <li id={`p${reply.no}`}>
           <header>
-            <h4>{reply.name}</h4>
-            <span>{reply.now}</span>
+            <h4 class="name">{reply.name}</h4>
+            <span class="id">{reply.no}</span>
+            <span class="timestamp" title={reply.now}>{formatDate(reply.time)}</span>
           </header>
           <article>
           {#if reply.sub || reply.com}
@@ -151,13 +180,20 @@
     margin-bottom: 1rem;
   }
   li > header {
+    font-size: 0.92rem;
     background-color: rgba(255, 255, 255, 0.1);
     padding: 0.15rem 0.75rem;
     display: flex;
     gap: 0.5rem;
     align-items: center;
-    & > h4 {
+    & > h4.name {
       color: mediumseagreen;
+    }
+    & > span.id {
+      color: lightgreen;
+    }
+    & > span.timestamp {
+      color: grey;
     }
   }
   li > article {
@@ -169,6 +205,9 @@
     & button.btn-thumb {
       all: unset;
       cursor: pointer;
+      &:focus, &:focus-visible {
+        outline: 2px solid lightblue;
+      }
     }
     & h4 {
       margin-bottom: 1rem;
@@ -238,9 +277,9 @@
       }
     }
     & img.preview, & video.preview {
-      /*aspect-ratio: auto;*/
+      aspect-ratio: auto;
+      width: auto;
       max-height: 80vh;
-      width: 100%;
     }
   }
   dialog::backdrop {

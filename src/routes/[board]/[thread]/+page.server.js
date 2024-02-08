@@ -18,6 +18,7 @@
  * @property {number} w
  * @property {number} h
  * @property {number} tim
+ * @property {number} time
  */
 
 /** @type {import('./$types').PageServerLoad} */
