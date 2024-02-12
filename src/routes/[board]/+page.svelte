@@ -2,8 +2,10 @@
   import Header from "$lib/components/Header.svelte"
   import imageIcon from "$lib/assets/image.svg"
   import messageIcon from "$lib/assets/message-square.svg"
+
   /** @type {import('./$types').PageServerData} */
   export let data;
+
   /**
     * @param {HTMLImageElement} node
     * @param {string} url
@@ -23,6 +25,14 @@
   <h2 slot="context">
     /{data.board}/ - {data.title}
   </h2>
+  <div slot="menu">
+    <label>
+      Search
+      <input
+        type="text"
+      />
+    </label>
+  </div>
 </Header>
 <section>
   <ul>

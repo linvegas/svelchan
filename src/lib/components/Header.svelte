@@ -1,20 +1,24 @@
 <script>
   import { sidebarView } from "$lib/store.js"
-  /** @type {string} */
-  // export let title = "Header";
   import menuIcon from "$lib/assets/menu.svg"
+
   function handleSideBar() {
     sidebarView.update(view => !view);
   }
 </script>
 
 <header>
-  <button title="Change sidebar" on:click={handleSideBar}>
+  <button class="togglebar" title="Toggle sidebar" on:click={handleSideBar}>
     <img class="svg" alt="Menu" src={menuIcon} />
   </button>
   <slot name="context">
     <h2>Context</h2>
   </slot>
+  {#if $$slots.menu}
+    <menu>
+      <slot name="menu" />
+    </menu>
+  {/if}
 </header>
 
 <style>
@@ -25,7 +29,7 @@
     padding-inline: 2rem;
     background: darkslategrey;
   }
-  button {
+  button.togglebar {
     border-width: 0;
     border-radius: 0.25rem;
     cursor: pointer;
@@ -37,7 +41,8 @@
   .svg {
     filter: invert(65%);
   }
-  /* h2 {
-    line-height: 60px;
-  } */
+  menu {
+    padding-left: 0;
+    margin-left: auto;
+  }
 </style>
