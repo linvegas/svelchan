@@ -13,6 +13,7 @@
  * @property {string} com
  * @property {string} now
  * @property {string} ext
+ * @property {string} filename
  * @property {number} tn_w
  * @property {number} tn_h
  * @property {number} w

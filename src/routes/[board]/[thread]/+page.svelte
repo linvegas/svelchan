@@ -5,11 +5,13 @@
   /** @type {import('./$types').PageServerData} */
   export let data;
 
+  console.log(data.posts)
+
   /** @type {HTMLDialogElement} */
   let dialogEl;
 
   /**
-    * @param {HTMLImageElement} node
+    * @param {HTMLImageElement|HTMLVideoElement} node
     * @param {string} url
   */
   function getImage(node, url) {
@@ -22,7 +24,7 @@
     update();
   }
 
-  /** @type {{id: number, ext: string, width: number, height: number}} curPreview */
+  /** @type {{id: number, ext: string, width: number, height: number, filename: string}} curPreview */
   let curPreview;
 
   let showDialog = false;
@@ -32,13 +34,15 @@
   * @param {string} imgExt
   * @param {number} imgWidth
   * @param {number} imgHeight
+  * @param {string} fileName
   */
-  function handleImagePreview(imgId, imgExt, imgWidth, imgHeight) {
+  function handleImagePreview(imgId, imgExt, imgWidth, imgHeight, fileName) {
     curPreview = {
       id: imgId,
       ext: imgExt,
       width: imgWidth,
       height: imgHeight,
+      filename: fileName,
     }
     showDialog = true;
     dialogEl.showModal()
@@ -108,7 +112,7 @@
               <button
                 class="btn-thumb"
                 type="button"
-                on:click={() => handleImagePreview(reply.tim, reply.ext, reply.w, reply.h)}
+                on:click={() => handleImagePreview(reply.tim, reply.ext, reply.w, reply.h, reply.filename)}
               >
                 <img
                   alt="Thumbnail"
@@ -129,7 +133,12 @@
 </section>
 <dialog bind:this={dialogEl}>
   <header>
-    <h3>Image preview</h3>
+    {#if showDialog}
+      <h3
+      title={`${curPreview.filename}${curPreview.ext}`}>
+        {curPreview.filename}{curPreview.ext}
+      </h3>
+    {/if}
     <button title="Close" on:click={handleCloseDialog}>
       <img class="svg" src={closeIcon} alt="X" />
     </button>
@@ -148,7 +157,6 @@
       <video
         controls muted
         class="preview"
-        src={`https://placehold.co/${curPreview.width}x${curPreview.height}`}
         width={curPreview.width}
         height={curPreview.height}
         use:getImage={`https://i.4cdn.org/${data.board}/${curPreview.id}${curPreview.ext}`}
@@ -253,17 +261,24 @@
   }
   dialog {
     margin: auto;
-    background: transparent;
+    background: darkslategray;
     /* padding: 0.75rem; */
-    border-width: 0;
+    border: 4px solid lightslategray;
     border-radius: 0.5rem;
     & > header {
       padding-bottom: 1rem;
       display: flex;
       justify-content: space-between;
+      & > h3 {
+        width: 100%;
+        max-width: 20ch;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
       & > button {
         border-width: 0;
-        border-radius: 0.25rem;
+        border-radius: 0.5rem;
         cursor: pointer;
         background: transparent;
         &:hover {
@@ -278,8 +293,11 @@
     }
     & img.preview, & video.preview {
       aspect-ratio: auto;
-      width: auto;
       max-height: 80vh;
+      width: auto;
+      /* object-fit: scale-down;
+      max-height: 80vh;
+      width: auto; */
     }
   }
   dialog::backdrop {
