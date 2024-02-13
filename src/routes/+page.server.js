@@ -9,6 +9,10 @@
  * @typedef {Object} Board
  * @property {string} board
  * @property {string} title
+ * @property {string} meta_description
+ * @property {0|1} ws_board,
+ * @property {number} bump_limt,
+ * @property {number} image_limt,
  */
 
 /** @type {import('./$types').PageServerLoad} */
