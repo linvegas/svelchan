@@ -12,8 +12,8 @@
   let selectedBoard;
 
   /** @type {boolean} */
-  let sidebarViewValue;
-  sidebarView.subscribe(value => sidebarViewValue = value);
+  let sidebarstate;
+  sidebarView.subscribe(value => sidebarstate = value);
 
   /** @param {KeyboardEvent} event */
   function onKeyPressed(event) {
@@ -31,9 +31,10 @@
   <title>Svelchan</title>
 </svelte:head>
 
-<div id="layout" class={sidebarViewValue ? "" : "sidebar-hidden"}>
-  {#if sidebarViewValue}
+<div id="layout">
+  {#if sidebarstate}
     <aside
+      class:sidebar-hidden={!sidebarstate}
       transition:slide={{
         delay: 0, duration: 200, axis: 'x',
       }}>
@@ -48,7 +49,7 @@
       </label>
     </aside>
   {/if}
-  <main>
+  <main class:sidebar-hidden={!sidebarstate}>
     <slot />
   </main>
 </div>
@@ -58,9 +59,6 @@
     display: grid;
     grid-template-columns: fit-content(20ch) minmax(min(50vw, 30ch), 1fr);
     grid-template-rows: 100vh;
-    &.sidebar-hidden {
-      grid-template-columns: auto 1fr;
-    }
   }
   aside {
     background: darkcyan;
@@ -81,9 +79,15 @@
         padding: 0.25rem 0.5rem;
       }
     }
+    &.sidebar-hidden {
+      grid-column: auto;
+    }
   }
   main {
     display: grid;
     grid-template-rows: 60px 1fr;
+    &.sidebar-hidden {
+      grid-column: 2 / 3;
+    }
   }
 </style>
