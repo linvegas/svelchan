@@ -1,11 +1,11 @@
 <script>
+  import { onMount } from "svelte";
+  import { page } from '$app/stores';
   import Header from "$lib/components/Header.svelte"
   import closeIcon from "$lib/assets/x.svg"
 
   /** @type {import('./$types').PageServerData} */
   export let data;
-
-  console.log(data.posts)
 
   /** @type {HTMLDialogElement} */
   let dialogEl;
@@ -84,49 +84,66 @@
   <h2 slot="context">
     <a title="Go back" class="back" href={`/${data.board}`}>
       &sol;{data.board}&sol;
-    </a> &gt; {data.threadNumber}
+    </a>
+    <span style:padding-inline={"0.5rem"}>&gt;</span>
+    {data.threadNumber}
+    {#if data.posts[0].sub}
+      <span style:padding-inline={"0.5rem"}>&gt;</span>
+      <span style:color={"lightgreen"}>{data.posts[0].sub}</span>
+    {/if}
   </h2>
 </Header>
 <section>
   <ul>
-    {#each data.posts as reply}
-      <!-- {#if reply.com} -->
-        <li id={`p${reply.no}`}>
-          <header>
-            <h4 class="name">{reply.name}</h4>
-            <span class="id">{reply.no}</span>
-            <span class="timestamp" title={reply.now}>{formatDate(reply.time)}</span>
-          </header>
-          <article>
-          {#if reply.sub || reply.com}
+    {#each data.posts as post}
+      <li class="post" id={`p${post.no}`}>
+        <header>
+          <h4 class="name">{post.name}</h4>
+          <span class="id">{post.no}</span>
+          <span class="timestamp" title={post.no}>{formatDate(post.time)}</span>
+          {#if post.replies && (post.replies.length > 0)}
+            <ul class="replies">
+              {#each post.replies as r}
+                <li>
+                  <a
+                    href={`${data.threadNumber}#p${r}`}
+                  >
+                    &gt;&gt;{r}
+                  </a>
+                </li>
+              {/each}
+            </ul>
+          {/if}
+        </header>
+        <article>
+          {#if post.sub || post.com}
             <div>
-              {#if reply.sub}
-                <h4>{@html reply.sub}</h4>
+              {#if post.sub}
+                <h4>{@html post.sub}</h4>
               {/if}
-              {#if reply.com}
-                <p>{@html reply.com}</p>
+              {#if post.com}
+                <p>{@html post.com}</p>
               {/if}
             </div>
           {/if}
-            {#if reply.tim}
-              <button
-                class="btn-thumb"
-                type="button"
-                on:click={() => handleImagePreview(reply.tim, reply.ext, reply.w, reply.h, reply.filename)}
-              >
-                <img
-                  alt="Thumbnail"
-                  src={`https://placehold.co/${reply.tn_w}x${reply.tn_h}`}
-                  width={reply.tn_w}
-                  height={reply.tn_h}
-                  loading="lazy"
-                  use:getImage={`https://i.4cdn.org/${data.board}/${reply.tim}s.jpg`}
-                />
-              </button>
-            {/if}
-          </article>
-        </li>
-      <!-- {/if} -->
+          {#if post.tim}
+            <button
+              class="btn-thumb"
+              type="button"
+              on:click={() => handleImagePreview(post.tim, post.ext, post.w, post.h, post.filename)}
+            >
+              <img
+                alt="Thumbnail"
+                src={`https://placehold.co/${post.tn_w}x${post.tn_h}`}
+                width={post.tn_w}
+                height={post.tn_h}
+                loading="lazy"
+                use:getImage={`https://i.4cdn.org/${data.board}/${post.tim}s.jpg`}
+              />
+            </button>
+          {/if}
+        </article>
+      </li>
     {/each}
     <hr>
   </ul>
@@ -182,10 +199,13 @@
     margin-inline: auto;
     width: min(960px, 100% - 4rem);
   }
-  li {
+  li.post {
     border: 2px solid dimgrey;
     border-radius: 0.5rem;
     margin-bottom: 1rem;
+    &.highlight {
+      border-color: goldenrod;
+    }
   }
   li > header {
     font-size: 0.92rem;
@@ -202,6 +222,11 @@
     }
     & > span.timestamp {
       color: grey;
+      flex-shrink: 0;
+    }
+    & > ul.replies > * {
+      display: inline-block;
+      margin-left: 0.25rem;
     }
   }
   li > article {
@@ -262,7 +287,6 @@
   dialog {
     margin: auto;
     background: darkslategray;
-    /* padding: 0.75rem; */
     border: 4px solid lightslategray;
     border-radius: 0.5rem;
     & > header {
