@@ -17,6 +17,7 @@ Things i used to help me:
 - [Feather Icons](https://feathericons.com)
 - [SvelteKit Docs](https://kit.svelte.dev/docs/introduction)
 - [KurobaEx](https://github.com/K1rakishou/Kuroba-Experimental)
+- [4chan Api Doc](https://github.com/4chan/4chan-API?tab=readme-ov-file)
 
 ## Development
 
