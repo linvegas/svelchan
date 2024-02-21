@@ -1,6 +1,4 @@
 <script>
-  import { onMount } from "svelte";
-  import { page } from '$app/stores';
   import Header from "$lib/components/Header.svelte"
   import closeIcon from "$lib/assets/x.svg"
 
@@ -78,6 +76,22 @@
 
     return diff
   }
+
+  /**
+    @param {string} id
+    @param {boolean} active
+  */
+  function highlightTarget(id, active) {
+    /** @type {HTMLLIElement|null} */
+    const target = document.querySelector(`#p${id}`);
+    if (target) {
+      if (active) {
+        target.classList.add("highlight")
+      } else {
+        target.classList.remove("highlight")
+      }
+    }
+  }
 </script>
 
 <Header>
@@ -100,13 +114,16 @@
         <header>
           <h4 class="name">{post.name}</h4>
           <span class="id">{post.no}</span>
-          <span class="timestamp" title={post.no}>{formatDate(post.time)}</span>
+          <span class="timestamp" title={post.now}>{formatDate(post.time)}</span>
           {#if post.replies && (post.replies.length > 0)}
             <ul class="replies">
               {#each post.replies as r}
                 <li>
                   <a
+                    class="reply-link"
                     href={`${data.threadNumber}#p${r}`}
+                    on:mouseenter={() => highlightTarget(r, true)}
+                    on:mouseleave={() => highlightTarget(r, false)}
                   >
                     &gt;&gt;{r}
                   </a>
@@ -203,6 +220,9 @@
     border: 2px solid dimgrey;
     border-radius: 0.5rem;
     margin-bottom: 1rem;
+    &:target {
+      border-color: goldenrod;
+    }
     &.highlight {
       border-color: goldenrod;
     }
@@ -227,6 +247,9 @@
     & > ul.replies > * {
       display: inline-block;
       margin-left: 0.25rem;
+      & a.reply-link:hover {
+        text-decoration: underline;
+      }
     }
   }
   li > article {
@@ -292,10 +315,9 @@
     & > header {
       padding-bottom: 1rem;
       display: flex;
+      gap: 1rem;
       justify-content: space-between;
       & > h3 {
-        width: 100%;
-        max-width: 20ch;
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden;
@@ -311,17 +333,14 @@
         }
         & img.svg {
           filter: invert(90%);
-          width: 1.5rem;
+          max-width: 1.5em;
         }
       }
     }
     & img.preview, & video.preview {
       aspect-ratio: auto;
       max-height: 80vh;
-      width: auto;
-      /* object-fit: scale-down;
-      max-height: 80vh;
-      width: auto; */
+      width: 100%;
     }
   }
   dialog::backdrop {

@@ -25,14 +25,6 @@
   <h2 slot="context">
     /{data.board}/ - {data.title}
   </h2>
-  <div slot="menu">
-    <label>
-      Search
-      <input
-        type="text"
-      />
-    </label>
-  </div>
 </Header>
 <section>
   <ul>

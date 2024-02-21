@@ -1,5 +1,6 @@
 <script>
   import Header from "$lib/components/Header.svelte"
+
   /** @type {import('./$types').PageServerData} */
   export let data;
 </script>
@@ -9,25 +10,25 @@
 </Header>
 <section>
   <ul>
-    {#each data.boards as board}
+    {#each data.boards as b}
       <li>
         <header>
-          <h4>{board.title}</h4>
-          <div>
-            <a class="board-link" href={`/${board.board}`}>
-              <span>
-                /{board.board}
-              </span>
-            </a>
-          </div>
-        </header>
-        <div class="info">
-          <p>{@html board.meta_description}</p>
-          {#if !board.ws_board}
+          <a href={`/${b.board}`}>
+            <h4>
+              {b.title}
+            </h4>
+            <span class="board-slash">
+              /{b.board}
+            </span>
+          </a>
+          {#if !b.ws_board}
             <span class="nsfw">
               <strong>NSFW</strong>
             </span>
           {/if}
+        </header>
+        <div class="info">
+          <p>{@html b.meta_description}</p>
         </div>
       </li>
     {/each}
@@ -49,12 +50,21 @@
     padding: 0.5rem;
     border-radius: 0.5rem;
     & > header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
       margin-bottom: 1rem;
-      & > h4 {
+      & h4 {
         color: bisque;
+        display: inline-block;
+        }
+      & span.board-slash {
+        margin-inline: 0.25rem 0.5rem;
+        color: gold;
+      }
+      & > span.nsfw {
+        font-size: 0.8rem;
+        color: red;
+        border: 2px solid red;
+        padding: 0.1rem;
+        border-radius: 0.25rem;
       }
       & a.board-link {
         background: rgba(0, 0, 0, 0.25);
@@ -64,18 +74,6 @@
           background: rgba(0, 0, 0, 0.5);
         }
       }
-    }
-    & div.info {
-      display: flex;
-      gap: 0.25rem;
-      align-items: flex-start;
-    }
-    & span.nsfw {
-      font-size: 0.8rem;
-      color: red;
-      border: 2px solid red;
-      padding: 0.1rem;
-      border-radius: 0.25rem;
     }
   }
 </style>
