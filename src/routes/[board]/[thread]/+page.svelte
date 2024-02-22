@@ -5,9 +5,6 @@
   /** @type {import('./$types').PageServerData} */
   export let data;
 
-  /** @type {HTMLDialogElement} */
-  let dialogEl;
-
   /**
     * @param {HTMLImageElement|HTMLVideoElement} node
     * @param {string} url
@@ -21,6 +18,9 @@
     }
     update();
   }
+
+  /** @type {HTMLDialogElement} */
+  let dialogEl;
 
   /** @type {{id: number, ext: string, width: number, height: number, filename: string}} curPreview */
   let curPreview;
@@ -92,6 +92,72 @@
       }
     }
   }
+
+  /** @type {HTMLDivElement} */
+  let popoverEl;
+
+  let popoverData = {
+    x: 0, y: 0,
+  };
+
+  /**
+    @param {HTMLLIElement} target
+  */
+  function updatePopover(target) {
+    // /** @type {HTMLLIElement|null} */
+    // const target = document.querySelector(`#p${id}`);
+
+    // if (target) {
+    /** @type {HTMLHeadingElement|null} */
+    const name = target.querySelector("h4.name");
+
+    if (name && name.textContent) {
+      const popName = popoverEl.querySelector("h4.name")
+      if (popName) popName.textContent = name.textContent;
+    }
+
+    /** @type {HTMLParagraphElement|null} */
+    const com = target.querySelector("p.com");
+
+    if (com && com.innerHTML) {
+      const popCom = popoverEl.querySelector("p.com");
+      if (popCom) popCom.innerHTML = com.innerHTML;
+    }
+    // }
+  }
+
+  /**
+    @param {MouseEvent & { currentTarget: HTMLAnchorElement}} event
+    @param {boolean} active
+    @param {string} id
+  */
+  function handlePopover(event, active, id) {
+    if (!active) {
+      popoverEl.style.visibility = "hidden";
+      return
+    } else {
+      /** @type {HTMLLIElement|null} */
+      const target = document.querySelector(`#p${id}`);
+
+      if (!target || !(target.getBoundingClientRect().top >= (document.documentElement.clientHeight))) {
+        return
+      }
+
+      popoverEl.style.visibility = "visible";
+
+      const refEl = event.currentTarget;
+
+      if (refEl) {
+        updatePopover(target)
+
+        const refRect = refEl.getBoundingClientRect();
+        const popRect = popoverEl.getBoundingClientRect();
+
+        popoverData.x = refRect.top - popRect.height - (refRect.height * 0.2);
+        popoverData.y = (refRect.left + (refRect.width / 2)) - popRect.width / 2;
+      }
+    }
+  }
 </script>
 
 <Header>
@@ -122,8 +188,14 @@
                   <a
                     class="reply-link"
                     href={`${data.threadNumber}#p${r}`}
-                    on:mouseenter={() => highlightTarget(r, true)}
-                    on:mouseleave={() => highlightTarget(r, false)}
+                    on:mouseenter={(e) => {
+                      highlightTarget(r, true)
+                      handlePopover(e, true, r)
+                    }}
+                    on:mouseleave={(e) => {
+                      highlightTarget(r, false)
+                      handlePopover(e, false, r)
+                    }}
                   >
                     &gt;&gt;{r}
                   </a>
@@ -139,7 +211,7 @@
                 <h4>{@html post.sub}</h4>
               {/if}
               {#if post.com}
-                <p>{@html post.com}</p>
+                <p class="com">{@html post.com}</p>
               {/if}
             </div>
           {/if}
@@ -201,7 +273,32 @@
   {/if}
 </dialog>
 
+<div
+  id="popover"
+  bind:this={popoverEl}
+  style:top={`${popoverData.x}px`}
+  style:left={`${popoverData.y}px`}
+>
+  <h4 class="name">Anonymous</h4>
+  <p class="com">KEK</p>
+</div>
+
 <style>
+  div#popover {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0.5rem;
+    max-width: 400px;
+    background: darkslategray;
+    border: 2px solid lightslategray;
+    border-radius: 0.5rem;
+    & h4.name {
+      color: mediumseagreen;
+      margin-bottom: 0.5rem;
+    }
+  }
   h2 a.back {
     color: lightblue;
     &:hover {
@@ -246,7 +343,7 @@
     }
     & > ul.replies > * {
       display: inline-block;
-      margin-left: 0.25rem;
+      margin-left: 0.35rem;
       & a.reply-link:hover {
         text-decoration: underline;
       }
@@ -268,29 +365,29 @@
     & h4 {
       margin-bottom: 1rem;
     }
-    & p {
-      & .quote {
-        color: lightgreen;
+  }
+  .com {
+    & .quote {
+      color: lightgreen;
+    }
+    & .quotelink {
+      color: deepskyblue;
+      &:hover {
+        filter: brightness(1.25);
       }
-      & .quotelink {
-        color: deepskyblue;
-        &:hover {
-          filter: brightness(1.25);
-        }
-      }
-      & .prettyprint {
-        font-size: 0.8rem;
-        display: inline-block;
-        max-width: 600px;
-        margin-bottom: 1rem;
-        background-color: #222;
-        color: lawngreen;
-        padding: 0.25rem;
-        border: 2px solid darkslategray;
-        border-radius: 0.25rem;
-        overflow-x: auto;
-        cursor: text;
-      }
+    }
+    & .prettyprint {
+      font-size: 0.8rem;
+      display: inline-block;
+      max-width: 600px;
+      margin-bottom: 1rem;
+      background-color: #222;
+      color: lawngreen;
+      padding: 0.25rem;
+      border: 2px solid darkslategray;
+      border-radius: 0.25rem;
+      overflow-x: auto;
+      cursor: text;
     }
   }
   hr {
