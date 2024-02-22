@@ -34,9 +34,9 @@
 <div id="layout">
   {#if sidebarstate}
     <aside
-      class:sidebar-hidden={!sidebarstate}
+      class:hidden={!sidebarstate}
       transition:slide={{
-        delay: 0, duration: 200, axis: 'x',
+        delay: 0, duration: 150, axis: 'x',
       }}>
       <h1><a href="/">Svelchan</a></h1>
       <label>
@@ -49,45 +49,50 @@
       </label>
     </aside>
   {/if}
-  <main class:sidebar-hidden={!sidebarstate}>
+  <section class:hidden={!sidebarstate}>
     <slot />
-  </main>
+  </section>
 </div>
 
 <style>
   #layout {
-    display: grid;
-    grid-template-columns: fit-content(20ch) minmax(min(50vw, 30ch), 1fr);
-    grid-template-rows: 100vh;
-  }
-  aside {
-    background: darkcyan;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    & label {
-      width: 100%;
+    --sidebar-w: 200px;
+
+    & aside {
+      position: fixed;
+      left: 0;
+      top: 0;
+      bottom: 0;
+
+      background: darkcyan;
+      padding: 1rem;
+      width: var(--sidebar-w);
+
       display: flex;
       flex-direction: column;
-      align-items: start;
-      & select {
+      align-items: center;
+      gap: 1rem;
+
+      & label {
         width: 100%;
-        border-width: 0;
-        border-radius: 0.25rem;
-        padding: 0.25rem 0.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+
+        & select {
+          width: 100%;
+          border-width: 0;
+          border-radius: 0.25rem;
+          padding: 0.25rem 0.5rem;
+        }
       }
     }
-    &.sidebar-hidden {
-      grid-column: auto;
-    }
-  }
-  main {
-    display: grid;
-    grid-template-rows: 60px 1fr;
-    &.sidebar-hidden {
-      grid-column: 2 / 3;
+    & > section {
+      margin-left: var(--sidebar-w);
+      transition: margin-left 150ms;
+      &.hidden {
+        margin-left: 0;
+      }
     }
   }
 </style>

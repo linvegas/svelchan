@@ -153,6 +153,9 @@
         const refRect = refEl.getBoundingClientRect();
         const popRect = popoverEl.getBoundingClientRect();
 
+        console.log("Link: ", refRect);
+        console.log("Popover: ", popRect);
+
         popoverData.x = refRect.top - popRect.height - (refRect.height * 0.2);
         popoverData.y = (refRect.left + (refRect.width / 2)) - popRect.width / 2;
       }
@@ -173,7 +176,7 @@
     {/if}
   </h2>
 </Header>
-<section>
+<main>
   <ul>
     {#each data.posts as post}
       <li class="post" id={`p${post.no}`}>
@@ -236,7 +239,7 @@
     {/each}
     <hr>
   </ul>
-</section>
+</main>
 <dialog bind:this={dialogEl}>
   <header>
     {#if showDialog}
@@ -305,8 +308,7 @@
       filter: brightness(1.25);
     }
   }
-  section {
-    overflow: scroll;
+  main {
     padding-block: 2rem;
   }
   ul {

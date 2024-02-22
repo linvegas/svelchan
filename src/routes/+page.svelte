@@ -8,7 +8,7 @@
 <Header>
   <h2 slot="context">List of Boards</h2>
 </Header>
-<section>
+<main>
   <ul>
     {#each data.boards as b}
       <li>
@@ -33,12 +33,11 @@
       </li>
     {/each}
   </ul>
-</section>
+</main>
 
 <style>
-  section {
+  main {
     padding: 2rem;
-    overflow: scroll;
   }
   ul {
     display: grid;

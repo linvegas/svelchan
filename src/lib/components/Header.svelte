@@ -23,10 +23,14 @@
 
 <style>
   header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+
     display: flex;
     align-items: center;
     gap: 1rem;
-    padding-inline: 2rem;
+    padding: 0.75rem 2rem;
     background: darkslategrey;
   }
   button.togglebar {

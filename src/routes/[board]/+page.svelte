@@ -26,7 +26,7 @@
     /{data.board}/ - {data.title}
   </h2>
 </Header>
-<section>
+<main>
   <ul>
     {#await data.lazy.threads}
       <p>Loading...</p>
@@ -63,12 +63,11 @@
       {/each}
     {/await}
   </ul>
-</section>
+</main>
 
 <style>
-  section {
+  main {
     padding: 2rem 2rem;
-    overflow: scroll;
   }
   ul {
     display: grid;
