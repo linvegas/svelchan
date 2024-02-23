@@ -96,7 +96,7 @@
   /** @type {HTMLDivElement} */
   let popoverEl;
 
-  let popoverData = {
+  let popoverPos = {
     x: 0, y: 0,
   };
 
@@ -153,11 +153,13 @@
         const refRect = refEl.getBoundingClientRect();
         const popRect = popoverEl.getBoundingClientRect();
 
-        console.log("Link: ", refRect);
-        console.log("Popover: ", popRect);
+        if (refRect.top < popRect.height) {
+          popoverPos.x = (refRect.bottom + window.scrollY) + (refRect.height * 0.2);
+        } else {
+          popoverPos.x = (refRect.top + window.scrollY) - popRect.height - (refRect.height * 0.2);
+        }
+        popoverPos.y = (refRect.left + (refRect.width / 2)) - popRect.width / 2;
 
-        popoverData.x = refRect.top - popRect.height - (refRect.height * 0.2);
-        popoverData.y = (refRect.left + (refRect.width / 2)) - popRect.width / 2;
       }
     }
   }
@@ -279,8 +281,8 @@
 <div
   id="popover"
   bind:this={popoverEl}
-  style:top={`${popoverData.x}px`}
-  style:left={`${popoverData.y}px`}
+  style:top={`${popoverPos.x}px`}
+  style:left={`${popoverPos.y}px`}
 >
   <h4 class="name">Anonymous</h4>
   <p class="com">KEK</p>
@@ -290,6 +292,7 @@
   div#popover {
     visibility: hidden;
     position: absolute;
+    z-index: 2;
     top: 0;
     left: 0;
     padding: 0.5rem;
@@ -297,6 +300,7 @@
     background: darkslategray;
     border: 2px solid lightslategray;
     border-radius: 0.5rem;
+    box-shadow: 0 0 0.5rem hsl(0 0% 0% / 35%);
     & h4.name {
       color: mediumseagreen;
       margin-bottom: 0.5rem;
