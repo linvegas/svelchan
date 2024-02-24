@@ -5,20 +5,6 @@
   /** @type {import('./$types').PageServerData} */
   export let data;
 
-  /**
-    * @param {HTMLImageElement|HTMLVideoElement} node
-    * @param {string} url
-  */
-  function getImage(node, url) {
-    const update = async () => {
-      const res = await self.fetch(`/api/getimage?query=${url}`);
-      const blob = await res.blob();
-      const imgUrl = URL.createObjectURL(blob);
-      node.src = imgUrl;
-    }
-    update();
-  }
-
   /** @type {HTMLDialogElement} */
   let dialogEl;
 
@@ -174,7 +160,7 @@
     {data.threadNumber}
     {#if data.posts[0].sub}
       <span style:padding-inline={"0.5rem"}>&gt;</span>
-      <span style:color={"lightgreen"}>{data.posts[0].sub}</span>
+      <span style:color={"lightgreen"}>{@html data.posts[0].sub}</span>
     {/if}
   </h2>
 </Header>
@@ -228,11 +214,10 @@
             >
               <img
                 alt="Thumbnail"
-                src={`https://placehold.co/${post.tn_w}x${post.tn_h}`}
+                src={`/api/getimage?q=https://i.4cdn.org/${data.board}/${post.tim}s.jpg`}
                 width={post.tn_w}
                 height={post.tn_h}
                 loading="lazy"
-                use:getImage={`https://i.4cdn.org/${data.board}/${post.tim}s.jpg`}
               />
             </button>
           {/if}
@@ -259,18 +244,17 @@
       <img
         alt="Preview"
         class="preview"
-        src={`https://placehold.co/${curPreview.width}x${curPreview.height}`}
+        src={`/api/getimage?q=https://i.4cdn.org/${data.board}/${curPreview.id}${curPreview.ext}`}
         width={curPreview.width}
         height={curPreview.height}
-        use:getImage={`https://i.4cdn.org/${data.board}/${curPreview.id}${curPreview.ext}`}
       />
     {:else}
       <video
         controls muted
         class="preview"
+        src={`/api/getimage?q=https://i.4cdn.org/${data.board}/${curPreview.id}${curPreview.ext}`}
         width={curPreview.width}
         height={curPreview.height}
-        use:getImage={`https://i.4cdn.org/${data.board}/${curPreview.id}${curPreview.ext}`}
       >
         <track kind="captions"/>
       </video>

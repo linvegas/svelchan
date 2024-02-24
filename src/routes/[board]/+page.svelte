@@ -5,20 +5,6 @@
 
   /** @type {import('./$types').PageServerData} */
   export let data;
-
-  /**
-    * @param {HTMLImageElement} node
-    * @param {string} url
-  */
-  function getImage(node, url) {
-    const update = async () => {
-      const res = await self.fetch(`/api/getimage?query=${url}`);
-      const blob = await res.blob();
-      const imgUrl = URL.createObjectURL(blob);
-      node.src = imgUrl;
-    }
-    update();
-  }
 </script>
 
 <Header>
@@ -36,11 +22,10 @@
           <a href={`${data.board}/${thread.no}`}>
             <img
               alt="Thumbnail"
-              src={`https://placehold.co/250x250`}
+              src={`/api/getimage?q=https://i.4cdn.org/${data.board}/${thread.tim}s.jpg`}
               width={thread.tn_w}
               height={thread.tn_h}
               loading="lazy"
-              use:getImage={`https://i.4cdn.org/${data.board}/${thread.tim}s.jpg`}
             />
           </a>
           {#if thread.sub}
