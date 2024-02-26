@@ -1,4 +1,6 @@
 <script>
+  import { onMount } from "svelte";
+
   import Header from "$lib/components/Header.svelte"
   import closeIcon from "$lib/assets/x.svg"
 
@@ -44,9 +46,14 @@
     const now = Math.floor(currentTime / 1000);
     const diff = now - timestamp;
 
+    const daysPassed = Math.floor(diff / 86400);
     const hoursPassed = Math.floor(diff / 3600);
     const minutesPassed = Math.floor(diff / 60) % 60;
     const secondsPassed = diff % 60;
+
+    if (daysPassed > 0) {
+      return `${daysPassed} ${daysPassed === 1 ? "day" : "days"} ago`
+    }
 
     if (hoursPassed > 0) {
       return `${hoursPassed} ${hoursPassed === 1 ? "hour" : "hours"} ago`
@@ -125,7 +132,11 @@
       /** @type {HTMLLIElement|null} */
       const target = document.querySelector(`#p${id}`);
 
-      if (!target || !(target.getBoundingClientRect().top >= (document.documentElement.clientHeight))) {
+      if (
+        !target
+        || target.getBoundingClientRect().top <= document.documentElement.clientHeight
+        && target.getBoundingClientRect().bottom >= window.screenY
+      ) {
         return
       }
 
@@ -144,11 +155,38 @@
         } else {
           popoverPos.x = (refRect.top + window.scrollY) - popRect.height - (refRect.height * 0.2);
         }
-        popoverPos.y = (refRect.left + (refRect.width / 2)) - popRect.width / 2;
 
+        if (refRect.left > popRect.x) {
+          popoverPos.y = (refRect.left + (refRect.width / 2)) - popRect.width / 2;
+        } else {
+          popoverPos.y = refRect.left;
+        }
       }
     }
   }
+
+  onMount(() => {
+    /** @type {NodeListOf<HTMLAnchorElement>} */
+    const quotelinks = document.querySelectorAll("a.quotelink");
+
+    quotelinks.forEach(link => {
+      const href = link.getAttribute("href")
+
+      if (!href) return;
+
+      const id = href.substring(2);
+
+      link.addEventListener("mouseenter", e => {
+        highlightTarget(id, true)
+        handlePopover(e, true, id)
+      })
+
+      link.addEventListener("mouseleave", e => {
+        highlightTarget(id, false)
+        handlePopover(e, false, id)
+      })
+    })
+  })
 </script>
 
 <Header>
