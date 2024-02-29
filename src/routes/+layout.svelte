@@ -64,7 +64,7 @@
       top: 0;
       bottom: 0;
 
-      background: darkcyan;
+      background: color-mix(in lab, var(--c-bg) 80%, var(--c-mix));
       padding: 1rem;
       width: var(--sidebar-w);
 
@@ -72,6 +72,10 @@
       flex-direction: column;
       align-items: center;
       gap: 1rem;
+
+      & > h1 {
+        color: var(--c-accent);
+      }
 
       & label {
         width: 100%;

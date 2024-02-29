@@ -1,5 +1,30 @@
 @import "reset.css";
 
+:root {
+  --c-mix: black;
+  --c-bg: #fafafa;
+  --c-fg: #383a42;
+  --c-accent: #4078f2;
+  --c-danger: #e45649;
+  --c-info: #50a14f;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --c-mix: white;
+    --c-bg: #1f2329;
+    --c-fg: #a0a8b7;
+    --c-accent: #e2b86b;
+    --c-danger: #e86671;
+    --c-info: #8ebd6b;
+  }
+}
+
+body {
+  background-color: var(--c-bg);
+  color: var(--c-fg);
+}
+
 .container {
   width: min(100% - 3rem, 1000px);
   margin-inline: auto;

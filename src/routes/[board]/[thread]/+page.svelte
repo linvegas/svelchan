@@ -346,15 +346,16 @@
     border-radius: 0.5rem;
     margin-bottom: 1rem;
     &:target {
-      border-color: goldenrod;
+      border-color: var(--c-accent);
     }
     &.highlight {
-      border-color: goldenrod;
+      border-color: var(--c-accent);
     }
   }
   li > header {
     font-size: 0.92rem;
-    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem 0.5rem 0 0;
+    background-color: color-mix(in lab, var(--c-bg) 95%, var(--c-mix));
     padding: 0.15rem 0.75rem;
     display: flex;
     gap: 0.5rem;

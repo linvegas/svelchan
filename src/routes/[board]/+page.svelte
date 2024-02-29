@@ -52,7 +52,7 @@
 
 <style>
   main {
-    padding: 2rem 2rem;
+    padding: 2rem;
   }
   ul {
     display: grid;
@@ -61,11 +61,11 @@
   }
   li {
     height: 410px;
-    background: darkslateblue;
+    background: color-mix(in lab, var(--c-bg) 90%, var(--c-mix));
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    box-shadow: 0 0 0.5rem hsl(0 0% 0% / 35%);
+    box-shadow: 0 0 0.2rem hsl(0 0% 0% / 35%);
     border-radius: 0.5rem;
   }
   li > a > img {
@@ -79,6 +79,7 @@
     justify-content: space-evenly;
     margin-top: auto;
     background: transparent;
+    color: var(--c-bg);
     & span {
       width: 100%;
       display: flex;
@@ -90,11 +91,11 @@
       }
       &:first-child {
         border-bottom-left-radius: 0.5rem;
-        background: darkmagenta;
+        background: color-mix(in lab, var(--c-accent) 80%, var(--c-bg));
       }
       &:last-child {
-        background: darkviolet;
         border-bottom-right-radius: 0.5rem;
+        background: color-mix(in lab, var(--c-accent) 60%, var(--c-bg));
       }
     }
   }

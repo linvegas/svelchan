@@ -45,23 +45,27 @@
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
   }
   li {
-    background: darkviolet;
+    background: color-mix(in lab, var(--c-bg) 90%, var(--c-mix));
     padding: 0.5rem;
     border-radius: 0.5rem;
+    box-shadow: 0 0 0.2rem hsl(0 0% 0% / 35%);
+    &:hover {
+      background: color-mix(in lab, var(--c-bg) 85%, var(--c-mix));
+    }
     & > header {
       margin-bottom: 1rem;
       & h4 {
-        color: bisque;
+        color: var(--c-accent);
         display: inline-block;
         }
       & span.board-slash {
         margin-inline: 0.25rem 0.5rem;
-        color: gold;
+        color: var(--c-accent);
       }
       & > span.nsfw {
         font-size: 0.8rem;
-        color: red;
-        border: 2px solid red;
+        color: var(--c-danger);
+        border: 2px solid var(--c-danger);
         padding: 0.1rem;
         border-radius: 0.25rem;
       }
