@@ -194,11 +194,11 @@
     <a title="Go back" class="back" href={`/${data.board}`}>
       &sol;{data.board}&sol;
     </a>
-    <span style:padding-inline={"0.5rem"}>&gt;</span>
+    <span style:color="var(--c-gray)" style:padding-inline="0.5rem">&gt;</span>
     {data.threadNumber}
     {#if data.posts[0].sub}
-      <span style:padding-inline={"0.5rem"}>&gt;</span>
-      <span style:color={"lightgreen"}>{@html data.posts[0].sub}</span>
+      <span style:color="var(--c-gray)" style:padding-inline="0.5rem">&gt;</span>
+      <span style:color="var(--c-accent)">{@html data.posts[0].sub}</span>
     {/if}
   </h2>
 </Header>
@@ -319,17 +319,17 @@
     left: 0;
     padding: 0.5rem;
     max-width: 400px;
-    background: darkslategray;
-    border: 2px solid lightslategray;
+    background-color: color-mix(in lab, var(--c-bg) 90%, var(--c-mix));
+    border: 2px solid var(--c-l-gray);
     border-radius: 0.5rem;
-    box-shadow: 0 0 0.5rem hsl(0 0% 0% / 35%);
+    box-shadow: 0 0 0.2rem hsl(0 0% 0% / 35%);
     & h4.name {
-      color: mediumseagreen;
+      color: var(--c-accent);
       margin-bottom: 0.5rem;
     }
   }
   h2 a.back {
-    color: lightblue;
+    color: color-mix(in lab, var(--c-accent) 70%, var(--c-mix));
     &:hover {
       filter: brightness(1.25);
     }
@@ -342,7 +342,7 @@
     width: min(960px, 100% - 4rem);
   }
   li.post {
-    border: 2px solid dimgrey;
+    border: 2px solid var(--c-gray);
     border-radius: 0.5rem;
     margin-bottom: 1rem;
     &:target {
@@ -361,13 +361,13 @@
     gap: 0.5rem;
     align-items: center;
     & > h4.name {
-      color: mediumseagreen;
+      color: var(--c-accent);
     }
     & > span.id {
-      color: lightgreen;
+      color: color-mix(in lab, var(--c-info) 50%, var(--c-mix));
     }
     & > span.timestamp {
-      color: grey;
+      color: var(--c-l-gray);
       flex-shrink: 0;
     }
     & > ul.replies > * {
@@ -397,10 +397,10 @@
   }
   .com {
     & .quote {
-      color: lightgreen;
+      color: var(--c-info);
     }
     & .quotelink {
-      color: deepskyblue;
+      color: var(--c-secondary);
       &:hover {
         filter: brightness(1.25);
       }
@@ -410,10 +410,10 @@
       display: inline-block;
       max-width: 600px;
       margin-bottom: 1rem;
-      background-color: #222;
-      color: lawngreen;
+      background-color: color-mix(in lab, var(--c-bg) 97%, var(--c-mix));
+      color: var(--c-info);
       padding: 0.25rem;
-      border: 2px solid darkslategray;
+      border: 1px solid var(--c-l-gray);
       border-radius: 0.25rem;
       overflow-x: auto;
       cursor: text;
@@ -422,21 +422,21 @@
   hr {
     margin-top: 2rem;
     border: none;
-    border-top: 5px double #333;
+    border-top: 5px double var(--c-gray);
     text-align: center;
     overflow: visible;
     &::after {
       content: "EOF";
       position: relative;
       padding-inline: 1rem;
-      background: #1c1b22;
+      background: var(--c-bg);
       top: -0.85rem;
     }
   }
   dialog {
     margin: auto;
-    background: darkslategray;
-    border: 4px solid lightslategray;
+    background: color-mix(in lab, var(--c-info) 10%, var(--c-bg));
+    border: 2px solid var(--c-l-gray);
     border-radius: 0.5rem;
     & > header {
       padding-bottom: 1rem;
@@ -444,6 +444,7 @@
       gap: 1rem;
       justify-content: space-between;
       & > h3 {
+        color: var(--c-accent);
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden;

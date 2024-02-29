@@ -33,7 +33,7 @@
     padding: 0.75rem 2rem;
     background: color-mix(in lab, var(--c-bg) 95%, var(--c-mix));
     color: var(--c-accent);
-    border-bottom: 1px solid grey;
+    border-bottom: 1px solid var(--c-gray);
   }
   button.togglebar {
     border-width: 0;

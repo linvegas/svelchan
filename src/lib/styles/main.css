@@ -5,8 +5,11 @@
   --c-bg: #fafafa;
   --c-fg: #383a42;
   --c-accent: #4078f2;
+  --c-secondary: #0184bc;
   --c-danger: #e45649;
   --c-info: #50a14f;
+  --c-gray: #a0a1a7;
+  --c-l-gray: #818387;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -15,8 +18,11 @@
     --c-bg: #1f2329;
     --c-fg: #a0a8b7;
     --c-accent: #e2b86b;
+    --c-secondary: #48b0bd;
     --c-danger: #e86671;
     --c-info: #8ebd6b;
+    --c-gray: #535965;
+    --c-l-gray: #7a818e;
   }
 }
 
