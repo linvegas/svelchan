@@ -2,7 +2,7 @@
   import { onMount } from "svelte";
 
   import Header from "$lib/components/Header.svelte"
-  import closeIcon from "$lib/assets/x.svg"
+  import IconCross from "$lib/components/IconCross.svelte"
 
   /** @type {import('./$types').PageServerData} */
   export let data;
@@ -274,7 +274,7 @@
       </h3>
     {/if}
     <button title="Close" on:click={handleCloseDialog}>
-      <img class="svg" src={closeIcon} alt="X" />
+      <IconCross />
     </button>
   </header>
   {#if showDialog}
@@ -455,11 +455,9 @@
         cursor: pointer;
         background: transparent;
         &:hover {
-          filter: brightness(1.25);
           background: rgba(0, 0, 0, 0.25);
         }
-        & img.svg {
-          filter: invert(90%);
+        & > svg {
           max-width: 1.5em;
         }
       }

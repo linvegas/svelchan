@@ -1,6 +1,7 @@
 <script>
   import { sidebarView } from "$lib/store.js"
-  import menuIcon from "$lib/assets/menu.svg"
+
+  import IconMenu from "$lib/components/IconMenu.svelte"
 
   function handleSideBar() {
     sidebarView.update(view => !view);
@@ -9,7 +10,7 @@
 
 <header>
   <button class="togglebar" title="Toggle sidebar" on:click={handleSideBar}>
-    <img class="svg" alt="Menu" src={menuIcon} />
+    <IconMenu />
   </button>
   <slot name="context">
     <h2>Context</h2>
@@ -40,12 +41,13 @@
     border-radius: 0.25rem;
     cursor: pointer;
     background: transparent;
-    &:hover {
-      filter: brightness(1.25);
+    & > svg {
+      filter: invert(50%);
+      transition: 100ms;
+      &:hover {
+        filter: invert(0);
+      }
     }
-  }
-  .svg {
-    filter: invert(65%);
   }
   menu {
     padding-left: 0;

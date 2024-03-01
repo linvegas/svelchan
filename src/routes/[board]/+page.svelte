@@ -1,7 +1,7 @@
 <script>
   import Header from "$lib/components/Header.svelte"
-  import imageIcon from "$lib/assets/image.svg"
-  import messageIcon from "$lib/assets/message-square.svg"
+  import IconMesg from "$lib/components/IconMesg.svelte"
+  import IconImg from "$lib/components/IconImg.svelte"
 
   /** @type {import('./$types').PageServerData} */
   export let data;
@@ -36,11 +36,11 @@
           {/if}
           <div class="replies">
             <span>
-              <img class="svg" src={messageIcon} alt="R:" />
+              <IconMesg />
               {thread.replies}
             </span>
             <span>
-              <img class="svg" src={imageIcon} alt="I:" />
+              <IconImg />
               {thread.images}
             </span>
           </div>
@@ -85,8 +85,7 @@
       display: flex;
       justify-content: center;
       gap: 0.25rem;
-      & > img.svg {
-        filter: invert(90%);
+      & > svg {
         width: 1rem;
       }
       &:first-child {
@@ -106,9 +105,6 @@
   li > :not(img, a):first-child {
     margin-top: 1rem;
   }
-  /*li > :last-child {
-    margin-bottom: 1rem;
-  }*/
   li > p {
     display: -webkit-box;
     -webkit-box-orient: vertical;
