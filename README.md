@@ -3,6 +3,10 @@
 A re-imagination of the (in?)famous [imageboard](https://en.wikipedia.org/wiki/Imageboard)
 website called [4chan](https://4chan.org).
 
+<p align=center>
+    <img src="./demo.png" />
+</p>
+
 ## Motivation
 
 *OG 4chan* is quite old looking, despite being cozy, and lack some really nice features
