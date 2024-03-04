@@ -8,8 +8,7 @@
   /** @type {import('./$types').LayoutData} */
   export let data;
 
-  /** @type {string} */
-  let selectedBoard;
+  $: selectedBoard = data.board;
 
   /** @type {boolean} */
   let sidebarstate;
@@ -42,8 +41,11 @@
       <label>
         Board:
         <select bind:value={selectedBoard} on:change={() => goto(`/${selectedBoard}`)}>
+          <option value="">--Choose a board--</option>
           {#each data.boards as board}
-            <option value={board.board}>/{board.board}</option>
+            <option value={board.board}>
+              /{board.board} - {board.title}
+            </option>
           {/each}
         </select>
       </label>
