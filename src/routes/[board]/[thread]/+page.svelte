@@ -235,7 +235,7 @@
         </header>
         <article>
           {#if post.sub || post.com}
-            <div>
+            <div class="content">
               {#if post.sub}
                 <h4>{@html post.sub}</h4>
               {/if}
@@ -382,11 +382,12 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 4rem;
+    gap: 2rem;
     padding: 0.75rem;
     & button.btn-thumb {
       all: unset;
       cursor: pointer;
+      flex-shrink: 0;
       &:focus, &:focus-visible {
         outline: 2px solid lightblue;
       }
