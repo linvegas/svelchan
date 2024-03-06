@@ -31,6 +31,10 @@ img, video, svg {
   font-style: italic;
 }
 
+menu {
+  padding: 0;
+}
+
 ul, ol {
   padding: 0;
   list-style-type: none;
