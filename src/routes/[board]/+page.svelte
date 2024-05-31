@@ -1,15 +1,30 @@
 <script>
+  import { goto } from "$app/navigation";
+
   import Header from "$lib/components/Header.svelte"
   import IconMesg from "$lib/components/IconMesg.svelte"
   import IconImg from "$lib/components/IconImg.svelte"
 
   /** @type {import('./$types').PageServerData} */
   export let data;
+  let selectedBoard = data.board;
 </script>
 
-<Header boards={data.boards}>
+<Header>
+  <div slot="select">
+    <label for="board-selection">Board:</label>
+    <select name="board-selection" bind:value={selectedBoard} on:change={() => goto(`/${selectedBoard}`)}>
+      <option value="">--Choose a board--</option>
+      {#each data.boards as b}
+        <option value={b.board}>
+          /{b.board}
+        </option>
+      {/each}
+    </select>
+  </div>
+
   <h2 slot="context">
-    /{data.board}/ - {data.title}
+    {data.title}
   </h2>
 </Header>
 <main>
@@ -54,6 +69,19 @@
   main {
     padding: 2rem;
   }
+
+  label[for="board-selection"] {
+    display: none;
+  }
+
+  select[name="board-selection"] {
+    width: 7ch;
+    background: color-mix(in lab, var(--c-bg) 80%, var(--c-mix));
+    border-width: 0;
+    border-radius: 0.25rem;
+    padding: 0.25rem 0.5rem;
+  }
+
   ul {
     display: grid;
     gap: 1rem;

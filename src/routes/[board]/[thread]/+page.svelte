@@ -189,7 +189,7 @@
   })
 </script>
 
-<Header boards={[{board: "g", title: "Tech"}]}>
+<Header>
   <h2 slot="context">
     <a title="Go back" class="back" href={`/${data.board}`}>
       &sol;{data.board}&sol;
