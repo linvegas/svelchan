@@ -1,30 +1,29 @@
-// import boardsData from "$lib/boards.json"
+import type { PageServerLoad } from './$types';
 
-/**
- * @typedef {Object} BoardsData
- * @property {Board[]} boards
- */
+type Board = {
+  board: string;
+  title: string;
+  meta_description: string;
+  ws_board: 0 | 1;
+  bump_limt: number;
+  image_limt: number;
+};
 
-/**
- * @typedef {Object} Board
- * @property {string} board
- * @property {string} title
- * @property {string} meta_description
- * @property {0|1} ws_board,
- * @property {number} bump_limt,
- * @property {number} image_limt,
- */
+type BoardsData = {
+  boards: Board[]
+};
 
-/** @type {import('./$types').PageServerLoad} */
-export async function load({}) {
+export const load: PageServerLoad = async () => {
   const res = await fetch("https://a.4cdn.org/boards.json");
-  /** @type {BoardsData} */
-  const catalog = await res.json();
-  /** @type {Board[]} */
-  let boards = []
+
+  const catalog: BoardsData = await res.json();
+
+  let boards: Array<Board> = [];
+
   for (let board of catalog.boards) {
     boards.push(board);
   }
+
   return {
     boards,
   }

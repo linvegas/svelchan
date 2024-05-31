@@ -1,66 +1,54 @@
-// import post from "$lib/thread.json"
+import type { PageServerLoad } from './$types';
 
-/**
- * @typedef {Object} Post
- * @property {Reply[]} posts
- */
+type Reply = {
+  sub: string | undefined;
+  no: string;
+  name: string;
+  com: string;
+  now: string;
+  ext: string;
+  filename: string;
+  tn_w: number;
+  tn_h: number;
+  w: number;
+  h: number;
+  tim: number;
+  time: number;
+  replies: string[];
+};
 
-/**
- * @typedef {Object} Reply
- * @property {string|undefined} sub
- * @property {string} no
- * @property {string} name
- * @property {string} com
- * @property {string} now
- * @property {string} ext
- * @property {string} filename
- * @property {number} tn_w
- * @property {number} tn_h
- * @property {number} w
- * @property {number} h
- * @property {number} tim
- * @property {number} time
- * @property {string[]} [replies]
- */
+type Post = {
+  posts: Array<Reply>;
+};
 
-/**
-  * @param {Reply[]} posts
-  * @returns {Array<String[]>}
-  */
-function getTotalReplies(posts) {
-  /** @type {Array<String[]>} */
-  let totalReplies = [];
+function getPostReplies(id: string, posts: Array<Reply>) {
+  let replies: Array<string> = [];
 
-  /** @param {string} id */
-  function getPostReplies(id) {
-    /** @type {Array<String>} */
-    let replies = [];
+  posts.forEach(post => {
+    if (post.com && post.com.match(`${id}`)) {
+      replies.push(`${post.no}`);
+    }
+  })
 
-    posts.forEach(post => {
-      if (post.com && post.com.match(`${id}`)) {
-        replies.push(`${post.no}`);
-      }
-    })
+  return replies;
+}
 
-    return replies;
-  }
+function getTotalReplies(posts: Array<Reply>) {
+  let totalReplies: Array<string[]> = [];
 
   posts.map(p => {
-    totalReplies.push(getPostReplies(p.no))
+    totalReplies.push(getPostReplies(p.no, posts))
   })
 
   return totalReplies;
 }
 
-/** @type {import('./$types').PageServerLoad} */
-export async function load({ params }) {
+export const load: PageServerLoad = async({ params }) => {
   const res = await fetch(`https://a.4cdn.org/${params.board}/thread/${params.thread}.json`);
 
-  /** @type {Post} */
-  const thread = await res.json();
+  const thread: Post = await res.json();
 
-  /** @type {Reply[]} */
-  let posts = thread.posts
+  let posts: Array<Reply> = thread.posts
 
   let totalReplies = getTotalReplies(posts)
 

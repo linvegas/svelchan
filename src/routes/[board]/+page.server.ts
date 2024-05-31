@@ -1,41 +1,36 @@
-// import catalog from "$lib/catalog.json"
+import type { PageServerLoad } from './$types';
 
-/**
- * @typedef {Object} Board
- * @property {string} board
- * @property {string} title
- */
+type Board = {
+  board: string;
+  title: string;
+};
 
-/**
- * @typedef {Object} BoardsData
- * @property {Board[]} boards
- */
+type BoardsData = {
+  boards: Board[]
+};
 
-/**
- * @typedef {Object} Thread
- * @property {string} sub
- * @property {string} com
- * @property {number} tn_w
- * @property {number} tn_h
- * @property {number} no
- * @property {number} tim
- * @property {number} replies
- * @property {number} images
- */
+type Thread = {
+  sub: string;
+  com: string;
+  tn_w: number;
+  tn_h: number;
+  no: number;
+  tim: number;
+  replies: number;
+  images: number;
+};
 
-/**
- * @typedef {Object[]} Catalog
- * @property {Thread[]} threads
- */
+type Catalog = {
+  page: number;
+  threads: Thread[];
+}[];
 
 async function getBoards() {
   const res = await fetch("https://a.4cdn.org/boards.json");
 
-  /** @type {BoardsData} */
-  const catalog = await res.json();
+  const catalog: BoardsData = await res.json();
 
-  /** @type {Board[]} */
-  let boards = []
+  let boards: Array<Board> = []
 
   for (let board of catalog.boards) {
     boards.push(board);
@@ -44,33 +39,27 @@ async function getBoards() {
   return boards
 }
 
-/**
- * @param {string} title
- * @param {Board[]} boards
- * */
-function getBoardTitle(title, boards) {
-  // const title = fetch("https://a.4cdn.org/boards.json")
-    // .then(res => res.json())
-    // .then(data => boards.filter(b => b.board === title))
+function getBoardTitle(title: string, boards: Array<Board>) {
   let board = boards.filter(b => b.board === title);
-  let result = board.map(b => b.title );
+  let result = board.map(b => b.title)[0];
+
   return result
 }
 
-/** @type {import('./$types').PageServerLoad} */
-export async function load({ params }) {
+export const load: PageServerLoad = async({ params }) => {
   const res = await fetch(`https://a.4cdn.org/${params.board}/catalog.json`);
-  /** @type {Catalog} */
-  const catalog = await res.json();
-  /** @type {Promise<Thread[]>} */
-  const threadsPromise = new Promise((resolve) => {
-    /** @type {Thread[]} */
-    let threads = []
+
+  const catalog: Catalog = await res.json();
+
+  const threadsPromise: Promise<Array<Thread>> = new Promise((resolve) => {
+    let threads: Array<Thread> = []
+
     for (let page of catalog) {
       for (let thread of page.threads) {
         threads.push(thread)
       }
     }
+
     resolve(threads)
   })
 
