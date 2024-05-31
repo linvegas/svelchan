@@ -1,6 +1,6 @@
 <script>
   import { slide } from "svelte/transition";
-  import { sidebarView } from "$lib/store.js"
+  import { sidebarView } from "$lib/store.ts"
 
   import "$lib/styles/main.css";
 

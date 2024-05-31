@@ -1,5 +1,5 @@
 <script>
-  import { sidebarView } from "$lib/store.js"
+  import { sidebarView } from "$lib/store.ts"
 
   import IconMenu from "$lib/components/IconMenu.svelte"
 
