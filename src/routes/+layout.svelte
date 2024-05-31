@@ -1,14 +1,11 @@
 <script>
   import { slide } from "svelte/transition";
   import { sidebarView } from "$lib/store.js"
-  import { goto } from "$app/navigation";
 
   import "$lib/styles/main.css";
 
   /** @type {import('./$types').LayoutData} */
-  export let data;
-
-  $: selectedBoard = data.board;
+  // export let data;
 
   /** @type {boolean} */
   let sidebarstate;
@@ -38,17 +35,6 @@
         delay: 0, duration: 150, axis: 'x',
       }}>
       <h1><a href="/">Svelchan</a></h1>
-      <label>
-        Board:
-        <select bind:value={selectedBoard} on:change={() => goto(`/${selectedBoard}`)}>
-          <option value="">--Choose a board--</option>
-          {#each data.boards as board}
-            <option value={board.board}>
-              /{board.board} - {board.title}
-            </option>
-          {/each}
-        </select>
-      </label>
     </aside>
   {/if}
   <section class:hidden={!sidebarstate}>
@@ -78,24 +64,12 @@
       & > h1 {
         color: var(--c-accent);
       }
-
-      & label {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-
-        & select {
-          width: 100%;
-          border-width: 0;
-          border-radius: 0.25rem;
-          padding: 0.25rem 0.5rem;
-        }
-      }
     }
+
     & > section {
       margin-left: var(--sidebar-w);
       transition: margin-left 150ms;
+
       &.hidden {
         margin-left: 0;
       }

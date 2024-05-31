@@ -7,7 +7,7 @@
   export let data;
 </script>
 
-<Header>
+<Header boards={data.boards}>
   <h2 slot="context">
     /{data.board}/ - {data.title}
   </h2>

@@ -1,6 +1,17 @@
 // import catalog from "$lib/catalog.json"
 
 /**
+ * @typedef {Object} Board
+ * @property {string} board
+ * @property {string} title
+ */
+
+/**
+ * @typedef {Object} BoardsData
+ * @property {Board[]} boards
+ */
+
+/**
  * @typedef {Object} Thread
  * @property {string} sub
  * @property {string} com
@@ -17,13 +28,33 @@
  * @property {Thread[]} threads
  */
 
-/** @param {string} board */
-function getBoardTitle(board) {
-  const title = fetch("https://a.4cdn.org/boards.json")
-    .then(res => res.json())
-    .then(data => data.boards.filter(b => b.board === board))
-    .then(board => board.map(b =>  b.title ))
-  return title
+async function getBoards() {
+  const res = await fetch("https://a.4cdn.org/boards.json");
+
+  /** @type {BoardsData} */
+  const catalog = await res.json();
+
+  /** @type {Board[]} */
+  let boards = []
+
+  for (let board of catalog.boards) {
+    boards.push(board);
+  }
+
+  return boards
+}
+
+/**
+ * @param {string} title
+ * @param {Board[]} boards
+ * */
+function getBoardTitle(title, boards) {
+  // const title = fetch("https://a.4cdn.org/boards.json")
+    // .then(res => res.json())
+    // .then(data => boards.filter(b => b.board === title))
+  let board = boards.filter(b => b.board === title);
+  let result = board.map(b => b.title );
+  return result
 }
 
 /** @type {import('./$types').PageServerLoad} */
@@ -42,9 +73,13 @@ export async function load({ params }) {
     }
     resolve(threads)
   })
-  const title = await getBoardTitle(params.board)
+
+  const boards = await getBoards();
+  const title = getBoardTitle(params.board, boards)
+
   return {
     board: params.board,
+    boards,
     title,
     lazy: {
       threads: threadsPromise
