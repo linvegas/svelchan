@@ -1,18 +1,17 @@
-<script>
+<script lang="ts">
   import { slide } from "svelte/transition";
-  import { sidebarView } from "$lib/store.ts"
+  import { sidebarView } from "$lib/store"
+  // import type { LayoutData } from './$types';
 
   import "$lib/styles/main.css";
 
-  /** @type {import('./$types').LayoutData} */
-  // export let data;
+  // export let data: LayoutData
 
-  /** @type {boolean} */
-  let sidebarstate;
+  let sidebarstate: boolean;
+
   sidebarView.subscribe(value => sidebarstate = value);
 
-  /** @param {KeyboardEvent} event */
-  function onKeyPressed(event) {
+  function onKeyPressed(event: KeyboardEvent) {
     switch (event.key) {
       case 'b':
         sidebarView.update(view => !view);

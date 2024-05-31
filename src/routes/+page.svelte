@@ -1,8 +1,8 @@
-<script>
+<script lang="ts">
+  import type { PageServerData } from './$types';
   import Header from "$lib/components/Header.svelte"
 
-  /** @type {import('./$types').PageServerData} */
-  export let data;
+  export let data: PageServerData;
 
   $: filteredBoards = data.boards;
 
@@ -42,8 +42,7 @@
     },
   ];
 
-  /** @param {number} id */
-  function handleFilter(id) {
+  function handleFilter(id: number) {
     selectedCategory = id
 
     const category = categories.find(c => c.id === id);

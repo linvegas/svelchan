@@ -1,12 +1,13 @@
-<script>
+<script lang="ts">
   import { goto } from "$app/navigation";
+  import type { PageServerData } from './$types';
 
   import Header from "$lib/components/Header.svelte"
   import IconMesg from "$lib/components/IconMesg.svelte"
   import IconImg from "$lib/components/IconImg.svelte"
 
-  /** @type {import('./$types').PageServerData} */
-  export let data;
+  export let data: PageServerData;
+
   let selectedBoard = data.board;
 </script>
 

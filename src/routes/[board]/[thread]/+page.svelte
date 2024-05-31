@@ -1,37 +1,38 @@
-<script>
+<script lang="ts">
   import { onMount } from "svelte";
+  import type { PageServerData } from './$types';
 
   import Header from "$lib/components/Header.svelte"
   import IconCross from "$lib/components/IconCross.svelte"
 
-  /** @type {import('./$types').PageServerData} */
-  export let data;
+  export let data: PageServerData;
 
-  /** @type {HTMLDialogElement} */
-  let dialogEl;
+  let dialogEl: HTMLDialogElement;
 
-  /** @type {{id: number, ext: string, width: number, height: number, filename: string}} curPreview */
-  let curPreview;
+  type CurrentPreview = {
+    id: number;
+    ext: string;
+    width: number;
+    height: number;
+    filename: string;
+  };
+
+  let curPreview: CurrentPreview;
 
   let showDialog = false;
 
-  /**
-  * @param {number} imgId
-  * @param {string} imgExt
-  * @param {number} imgWidth
-  * @param {number} imgHeight
-  * @param {string} fileName
-  */
-  function handleImagePreview(imgId, imgExt, imgWidth, imgHeight, fileName) {
+  function handleImagePreview(
+    imgId: number, imgExt: string, imgWidth: number, imgHeight: number, fileName: string
+  ) {
     curPreview = {
       id: imgId,
       ext: imgExt,
       width: imgWidth,
       height: imgHeight,
       filename: fileName,
-    }
+    };
     showDialog = true;
-    dialogEl.showModal()
+    dialogEl.showModal();
   }
 
   function handleCloseDialog() {
@@ -41,8 +42,7 @@
 
   let currentTime = Date.now()
 
-  /** @param {number} timestamp */
-  function formatDate(timestamp) {
+  function formatDate(timestamp: number) {
     const now = Math.floor(currentTime / 1000);
     const diff = now - timestamp;
 
@@ -52,65 +52,55 @@
     const secondsPassed = diff % 60;
 
     if (daysPassed > 0) {
-      return `${daysPassed} ${daysPassed === 1 ? "day" : "days"} ago`
+      return `${daysPassed} ${daysPassed === 1 ? "day" : "days"} ago`;
     }
 
     if (hoursPassed > 0) {
-      return `${hoursPassed} ${hoursPassed === 1 ? "hour" : "hours"} ago`
+      return `${hoursPassed} ${hoursPassed === 1 ? "hour" : "hours"} ago`;
     }
 
     if (minutesPassed > 0) {
-      return `${minutesPassed} ${minutesPassed === 1 ? "minute" : "minutes"} ago`
+      return `${minutesPassed} ${minutesPassed === 1 ? "minute" : "minutes"} ago`;
     }
 
     if (secondsPassed > 0) {
-      return "just now"
+      return "just now";
     }
 
-    return diff
+    return diff;
   }
 
-  /**
-    @param {string} id
-    @param {boolean} active
-  */
-  function highlightTarget(id, active) {
-    /** @type {HTMLLIElement|null} */
-    const target = document.querySelector(`#p${id}`);
+  function highlightTarget(id: string, active: boolean) {
+    const target = document.querySelector<HTMLLIElement>(`#p${id}`);
+
     if (target) {
       if (active) {
-        target.classList.add("highlight")
+        target.classList.add("highlight");
       } else {
-        target.classList.remove("highlight")
+        target.classList.remove("highlight");
       }
     }
   }
 
-  /** @type {HTMLDivElement} */
-  let popoverEl;
+  let popoverEl: HTMLDivElement;
 
   let popoverPos = {
     x: 0, y: 0,
   };
 
-  /**
-    @param {HTMLLIElement} target
-  */
-  function updatePopover(target) {
+  function updatePopover(target: HTMLLIElement) {
     // /** @type {HTMLLIElement|null} */
     // const target = document.querySelector(`#p${id}`);
 
     // if (target) {
-    /** @type {HTMLHeadingElement|null} */
-    const name = target.querySelector("h4.name");
+    const name = target.querySelector<HTMLHeadingElement>("h4.name");
 
     if (name && name.textContent) {
       const popName = popoverEl.querySelector("h4.name")
       if (popName) popName.textContent = name.textContent;
     }
 
-    /** @type {HTMLParagraphElement|null} */
-    const com = target.querySelector("p.com");
+    const com = target.querySelector<HTMLParagraphElement>("p.com");
 
     if (com && com.innerHTML) {
       const popCom = popoverEl.querySelector("p.com");
@@ -119,18 +109,14 @@
     // }
   }
 
-  /**
-    @param {MouseEvent & { currentTarget: HTMLAnchorElement}} event
-    @param {boolean} active
-    @param {string} id
-  */
-  function handlePopover(event, active, id) {
+  function handlePopover(
+    event: MouseEvent, active: boolean, id: string
+  ) {
     if (!active) {
       popoverEl.style.visibility = "hidden";
       return
     } else {
-      /** @type {HTMLLIElement|null} */
-      const target = document.querySelector(`#p${id}`);
+      const target = document.querySelector<HTMLLIElement>(`#p${id}`);
 
       if (
         !target
@@ -142,7 +128,7 @@
 
       popoverEl.style.visibility = "visible";
 
-      const refEl = event.currentTarget;
+      const refEl = event.currentTarget as HTMLAnchorElement;
 
       if (refEl) {
         updatePopover(target)
@@ -166,8 +152,7 @@
   }
 
   onMount(() => {
-    /** @type {NodeListOf<HTMLAnchorElement>} */
-    const quotelinks = document.querySelectorAll("a.quotelink");
+    const quotelinks = document.querySelectorAll<HTMLAnchorElement>("a.quotelink");
 
     quotelinks.forEach(link => {
       const href = link.getAttribute("href")
