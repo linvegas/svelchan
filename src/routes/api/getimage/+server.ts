@@ -1,5 +1,6 @@
-/** @type {import('./$types').RequestHandler} */
-export async function GET({ url }) {
+import type { RequestHandler } from './$types';
+
+export const GET: RequestHandler = async ({ url }) => {
   const query = String(url.searchParams.get("q"));
 
   try {
