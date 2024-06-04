@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
+  import { goto } from "$app/navigation";
   import type { PageServerData } from './$types';
 
   import Header from "$lib/components/Header.svelte"
@@ -176,9 +177,13 @@
 
 <Header>
   <h2 slot="context">
-    <a title="Go back" class="back" href={`/${data.board}`}>
+    <button
+      title="Go back"
+      class="back"
+      on:click={() => goto("/" + data.board)}
+    >
       &sol;{data.board}&sol;
-    </a>
+    </button>
     <span style:color="var(--c-gray)" style:padding-inline="0.5rem">&gt;</span>
     {data.threadNumber}
     {#if data.posts[0].sub}
@@ -313,10 +318,14 @@
       margin-bottom: 0.5rem;
     }
   }
-  h2 a.back {
+  h2 button.back {
+    appearance: none;
+    border: 0;
     color: color-mix(in lab, var(--c-accent) 70%, var(--c-mix));
     &:hover {
-      filter: brightness(1.25);
+      background: transparent;
+      cursor: pointer;
+      color: color-mix(in lab, var(--c-accent) 20%, var(--c-mix));
     }
   }
   main {
