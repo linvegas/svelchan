@@ -23,55 +23,35 @@ type Thread = {
 type Catalog = {
   page: number;
   threads: Thread[];
-}[];
+};
 
-async function getBoards() {
+async function getBoards(curBoard: string) {
   const res = await fetch("https://a.4cdn.org/boards.json");
 
-  const catalog: BoardsData = await res.json();
+  const boardsData: BoardsData = await res.json();
 
-  let boards: Array<Board> = []
+  const boards: Array<Board> = boardsData.boards;
 
-  for (let board of catalog.boards) {
-    boards.push(board);
-  }
+  const title: string = boards.filter(b => b.board === curBoard).map(b => b.title)[0];
 
-  return boards
-}
-
-function getBoardTitle(title: string, boards: Array<Board>) {
-  let board = boards.filter(b => b.board === title);
-  let result = board.map(b => b.title)[0];
-
-  return result
+  return {boards, title};
 }
 
 export const load: PageServerLoad = async({ params }) => {
   const res = await fetch(`https://a.4cdn.org/${params.board}/catalog.json`);
 
-  const catalog: Catalog = await res.json();
+  const catalog: Array<Catalog> = await res.json();
 
-  const threadsPromise: Promise<Array<Thread>> = new Promise((resolve) => {
-    let threads: Array<Thread> = []
+  const threads: Array<Thread> = catalog.flatMap(page => page.threads);
 
-    for (let page of catalog) {
-      for (let thread of page.threads) {
-        threads.push(thread)
-      }
-    }
+  const currentBoard = params.board;
 
-    resolve(threads)
-  })
-
-  const boards = await getBoards();
-  const title = getBoardTitle(params.board, boards)
+  const {boards, title} = await getBoards(currentBoard);
 
   return {
-    board: params.board,
+    currentBoard,
     boards,
     title,
-    lazy: {
-      threads: threadsPromise
-    }
+    threads,
   }
 }
