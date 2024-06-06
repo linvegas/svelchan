@@ -8,7 +8,7 @@
 
   export let data: PageServerData;
 
-  let selectedBoard = data.board;
+  let selectedBoard = data.currentBoard;
 </script>
 
 <Header>
@@ -30,39 +30,35 @@
 </Header>
 <main>
   <ul>
-    {#await data.lazy.threads}
-      <p>Loading...</p>
-      {:then threads}
-      {#each threads as thread}
-        <li>
-          <a href={`${data.board}/${thread.no}`}>
-            <img
-              alt="Thumbnail"
-              src={`/api/getimage?q=https://i.4cdn.org/${data.board}/${thread.tim}s.jpg`}
-              width={thread.tn_w}
-              height={thread.tn_h}
-              loading="lazy"
-            />
-          </a>
-          {#if thread.sub}
-            <h4>{@html thread.sub}</h4>
-          {/if}
-          {#if thread.com}
-            <p>{@html thread.com}</p>
-          {/if}
-          <div class="replies">
-            <span>
-              <IconMesg />
-              {thread.replies}
-            </span>
-            <span>
-              <IconImg />
-              {thread.images}
-            </span>
-          </div>
-        </li>
-      {/each}
-    {/await}
+    {#each data.threads as thread}
+      <li>
+        <a href={`${data.currentBoard}/${thread.no}`}>
+          <img
+            alt="Thumbnail"
+            loading="lazy"
+            src={`/api/getimage?url=https://i.4cdn.org/${data.currentBoard}/${thread.tim}s.jpg`}
+            width={thread.tn_w}
+            height={thread.tn_h}
+          />
+        </a>
+        {#if thread.sub}
+          <h4>{@html thread.sub}</h4>
+        {/if}
+        {#if thread.com}
+          <p>{@html thread.com}</p>
+        {/if}
+        <div class="replies">
+          <span>
+            <IconMesg />
+            {thread.replies}
+          </span>
+          <span>
+            <IconImg />
+            {thread.images}
+          </span>
+        </div>
+      </li>
+    {/each}
   </ul>
 </main>
 

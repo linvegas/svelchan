@@ -242,7 +242,7 @@
             >
               <img
                 alt="Thumbnail"
-                src={`/api/getimage?q=https://i.4cdn.org/${data.board}/${post.tim}s.jpg`}
+                src={`/api/getimage?url=https://i.4cdn.org/${data.board}/${post.tim}s.jpg`}
                 width={post.tn_w}
                 height={post.tn_h}
                 loading="lazy"
@@ -272,7 +272,7 @@
       <img
         alt="Preview"
         class="preview"
-        src={`/api/getimage?q=https://i.4cdn.org/${data.board}/${curPreview.id}${curPreview.ext}`}
+        src={`/api/getimage?url=https://i.4cdn.org/${data.board}/${curPreview.id}${curPreview.ext}`}
         width={curPreview.width}
         height={curPreview.height}
       />
