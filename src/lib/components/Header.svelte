@@ -1,5 +1,6 @@
 <script>
   import { sidebarView } from "$lib/store"
+  import { page } from "$app/stores"
 
   import IconMenu from "$lib/components/IconMenu.svelte"
 
@@ -9,21 +10,23 @@
 </script>
 
 <header>
-  <button class="togglebar" title="Toggle sidebar" on:click={handleSideBar}>
-    <IconMenu />
-  </button>
+  <div class={$page.route.id && $page.route.id.includes("/thread") ? "container" : ""}>
+    <button class="togglebar" title="Toggle sidebar" on:click={handleSideBar}>
+      <IconMenu />
+    </button>
 
-  <slot name="select" />
+    <slot name="select" />
 
-  <slot name="context">
-    <h2>Context</h2>
-  </slot>
+    <slot name="context">
+      <h2>Context</h2>
+    </slot>
 
-  {#if $$slots.menu}
-    <menu>
-      <slot name="menu" />
-    </menu>
-  {/if}
+    {#if $$slots.menu}
+      <menu>
+        <slot name="menu" />
+      </menu>
+    {/if}
+  </div>
 </header>
 
 <style>
@@ -32,13 +35,15 @@
     top: 0;
     z-index: 1;
 
-    display: flex;
-    align-items: center;
-    gap: 1rem;
     padding: 0.75rem 2rem;
     background: color-mix(in lab, var(--c-bg) 95%, var(--c-mix));
     color: var(--c-accent);
     border-bottom: 1px solid var(--c-gray);
+    & > div {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
   }
 
   button.togglebar {

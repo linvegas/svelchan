@@ -176,7 +176,7 @@
 </script>
 
 <Header>
-  <h2 slot="context">
+  <h2 slot="context" style="display: inline-block;">
     <button
       title="Go back"
       class="back"
@@ -193,7 +193,7 @@
   </h2>
 </Header>
 <main>
-  <ul>
+  <ul class="container">
     {#each data.posts as post}
       <li class="post" id={`p${post.no}`}>
         <header>
@@ -331,10 +331,10 @@
   main {
     padding-block: 2rem;
   }
-  ul {
+  /*ul {
     margin-inline: auto;
     width: min(960px, 100% - 4rem);
-  }
+  }*/
   li.post {
     border: 2px solid var(--c-gray);
     border-radius: 0.5rem;

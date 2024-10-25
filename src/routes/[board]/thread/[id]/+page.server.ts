@@ -44,7 +44,7 @@ function getTotalReplies(posts: Array<Reply>) {
 }
 
 export const load: PageServerLoad = async({ params }) => {
-  const res = await fetch(`https://a.4cdn.org/${params.board}/thread/${params.thread}.json`);
+  const res = await fetch(`https://a.4cdn.org/${params.board}/thread/${params.id}.json`);
 
   const thread: Post = await res.json();
 
@@ -58,7 +58,7 @@ export const load: PageServerLoad = async({ params }) => {
 
   return {
     board: params.board,
-    threadNumber: params.thread,
+    threadNumber: params.id,
     posts
   }
 }

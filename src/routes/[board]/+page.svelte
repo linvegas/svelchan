@@ -32,7 +32,7 @@
   <ul>
     {#each data.threads as thread}
       <li>
-        <a href={`${data.currentBoard}/${thread.no}`}>
+        <a href={`${data.currentBoard}/thread/${thread.no}`}>
           <img
             alt="Thumbnail"
             loading="lazy"
