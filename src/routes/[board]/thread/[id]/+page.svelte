@@ -4,42 +4,11 @@
   import type { PageServerData } from './$types';
 
   import Header from "$lib/components/Header.svelte"
-  import IconCross from "$lib/components/IconCross.svelte"
 
   export let data: PageServerData;
 
-  let dialogEl: HTMLDialogElement;
-
-  type CurrentPreview = {
-    id: number;
-    ext: string;
-    width: number;
-    height: number;
-    filename: string;
-  };
-
-  let curPreview: CurrentPreview;
-
-  let showDialog = false;
-
-  function handleImagePreview(
-    imgId: number, imgExt: string, imgWidth: number, imgHeight: number, fileName: string
-  ) {
-    curPreview = {
-      id: imgId,
-      ext: imgExt,
-      width: imgWidth,
-      height: imgHeight,
-      filename: fileName,
-    };
-    showDialog = true;
-    dialogEl.showModal();
-  }
-
-  function handleCloseDialog() {
-    dialogEl.close();
-    showDialog = false;
-  }
+  // let imagePosts = data.posts.filter(p => p.tim);
+  let showImgView = false;
 
   let currentTime = Date.now()
 
@@ -152,6 +121,13 @@
     }
   }
 
+  let mediaViewIdx = 0;
+
+  function handleMediaView(idx: number) {
+    mediaViewIdx = idx;
+    showImgView = true;
+  }
+
   onMount(() => {
     const quotelinks = document.querySelectorAll<HTMLAnchorElement>("a.quotelink");
 
@@ -194,7 +170,7 @@
 </Header>
 <main>
   <ul class="container">
-    {#each data.posts as post}
+    {#each data.posts as post, i}
       <li class="post" id={`p${post.no}`}>
         <header>
           <h4 class="name">{post.name}</h4>
@@ -238,7 +214,7 @@
             <button
               class="btn-thumb"
               type="button"
-              on:click={() => handleImagePreview(post.tim, post.ext, post.w, post.h, post.filename)}
+              on:click={() => handleMediaView(i)}
             >
               <img
                 alt="Thumbnail"
@@ -255,40 +231,35 @@
     <hr>
   </ul>
 </main>
-<dialog bind:this={dialogEl}>
-  <header>
-    {#if showDialog}
-      <h3
-      title={`${curPreview.filename}${curPreview.ext}`}>
-        {curPreview.filename}{curPreview.ext}
-      </h3>
-    {/if}
-    <button title="Close" on:click={handleCloseDialog}>
-      <IconCross />
-    </button>
-  </header>
-  {#if showDialog}
-    {#if curPreview.ext !== ".webm"}
+
+{#if showImgView}
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
+  <div
+    id="view-overlay"
+    role="button"
+    tabindex="0"
+    on:click={e => {
+      if (e.target?.matches("div#view-overlay")) {
+        showImgView = false;
+      }
+    }}>
+    {#if data.posts[mediaViewIdx].ext !== ".webm"}
       <img
         alt="Preview"
-        class="preview"
-        src={`/api/getimage?url=https://i.4cdn.org/${data.board}/${curPreview.id}${curPreview.ext}`}
-        width={curPreview.width}
-        height={curPreview.height}
+        class="view-media"
+        src={`/api/getimage?url=https://i.4cdn.org/${data.board}/${data.posts[mediaViewIdx].tim}${data.posts[mediaViewIdx].ext}`}
       />
     {:else}
       <video
         controls muted
-        class="preview"
-        src={`/api/getimage?q=https://i.4cdn.org/${data.board}/${curPreview.id}${curPreview.ext}`}
-        width={curPreview.width}
-        height={curPreview.height}
+        class="view-media"
+        src={`/api/getimage?url=https://i.4cdn.org/${data.board}/${data.posts[mediaViewIdx].tim}${data.posts[mediaViewIdx].ext}`}
       >
         <track kind="captions"/>
       </video>
     {/if}
-  {/if}
-</dialog>
+  </div>
+{/if}
 
 <div
   id="popover"
@@ -331,10 +302,6 @@
   main {
     padding-block: 2rem;
   }
-  /*ul {
-    margin-inline: auto;
-    width: min(960px, 100% - 4rem);
-  }*/
   li.post {
     border: 2px solid var(--c-gray);
     border-radius: 0.5rem;
@@ -428,42 +395,23 @@
       top: -0.85rem;
     }
   }
-  dialog {
-    margin: auto;
-    background: color-mix(in lab, var(--c-info) 10%, var(--c-bg));
-    border: 2px solid var(--c-l-gray);
-    border-radius: 0.5rem;
-    & > header {
-      padding-bottom: 1rem;
-      display: flex;
-      gap: 1rem;
-      justify-content: space-between;
-      & > h3 {
-        color: var(--c-accent);
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
-      }
-      & > button {
-        border-width: 0;
-        border-radius: 0.5rem;
-        cursor: pointer;
-        background: transparent;
-        &:hover {
-          background: rgba(0, 0, 0, 0.25);
-        }
-        & > svg {
-          max-width: 1.5em;
-        }
-      }
+  div#view-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & .view-media {
+      max-width: 80%;
+      max-height: 90%;
     }
-    & img.preview, & video.preview {
-      aspect-ratio: auto;
-      max-height: 80vh;
-      width: 100%;
-    }
-  }
-  dialog::backdrop {
-    background-color: rgba(0, 0, 0, 0.8);
   }
 </style>

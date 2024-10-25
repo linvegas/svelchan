@@ -1,25 +1,26 @@
 import type { PageServerLoad } from './$types';
+import type { Reply, Post } from '$lib/types';
 
-type Reply = {
-  sub: string | undefined;
-  no: string;
-  name: string;
-  com: string;
-  now: string;
-  ext: string;
-  filename: string;
-  tn_w: number;
-  tn_h: number;
-  w: number;
-  h: number;
-  tim: number;
-  time: number;
-  replies: string[];
-};
-
-type Post = {
-  posts: Array<Reply>;
-};
+// type Reply = {
+//   sub: string | undefined;
+//   no: string;
+//   name: string;
+//   com: string;
+//   now: string;
+//   ext: string;
+//   filename: string;
+//   tn_w: number;
+//   tn_h: number;
+//   w: number;
+//   h: number;
+//   tim: number;
+//   time: number;
+//   replies: string[];
+// };
+//
+// type Post = {
+//   posts: Array<Reply>;
+// };
 
 function getPostReplies(id: string, posts: Array<Reply>) {
   let replies: Array<string> = [];
